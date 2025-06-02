@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>画像クリックでスライド</title>
+  <style>
+    .slider {
+      width: 600px;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 600px;
+      height: 400px;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none; /* 画像自体のクリックを無効にして親要素で処理 */
+    }
+  </style>
+</head>
+<body>
+
+<div class="slider" id="slider">
+  <div class="slider-track" id="sliderTrack">
+    <div class="slide"><img src="back1.jpg" alt="1"></div>
+    <div class="slide"><img src="back2.jpg" alt="2"></div>
+    <div class="slide"><img src="back3.jpg" alt="3"></div>
+  </div>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+  const track = document.getElementById('sliderTrack');
+  const slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  function updateSlide() {
+    track.style.transform = `translateX(-${index * 600}px)`;
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    updateSlide();
+  }
+
+  // 画像クリックで次のスライドへ
+  slider.addEventListener('click', nextSlide);
+
+  // 自動スライド（必要なければこの行を削除）
+  setInterval(nextSlide, 3000);
+</script>
+
+</body>
+</html>

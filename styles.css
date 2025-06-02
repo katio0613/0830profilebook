@@ -1,0 +1,99 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      position: relative;
+      z-index: 1;
+}
+
+
+body.favorite-page {
+	background: linear-gradient(to right, #fafad2 50%, #ffc0cb 50%); /* 好きな色に変更 */
+}
+
+
+.content {
+  position: relative;
+  z-index: 2; /* オーバーレイの上に表示 */
+  text-align: center;
+  padding: 20px;
+}
+
+.section {
+  padding: 40px 20px;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+.centered-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* 画面の高さいっぱい */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.centered-heading {
+  font-size: 2.5em;
+  text-align: center;
+  color: #333;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+
+
+.menu-icon {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.menu-icon img {
+    width: 50px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.menu-icon:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+h1 	{
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1.white	{
+	text-align: center;
+    margin: 50px;
+	color: #ffffff;
+}
+
+p 	{
+    text-align: center;
+    margin: 20px;
+}
+	

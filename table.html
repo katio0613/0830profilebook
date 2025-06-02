@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial,sans-serif;
+            padding: 20px;
+        }
+		
+		* {
+		box-sizing: border-box;
+	}
+
+	html, body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+	}
+
+	main {
+		flex: 1;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+        svg {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+        .guest-section {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #ccc;
+        }
+        .guest-section h2 {
+            margin-top: 0;
+        }
+        .menu-icon {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+    }
+
+    .menu-icon img {
+      width: 50px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 9;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .menu-overlay.show {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: 10;
+      padding: 60px 20px 20px;
+      box-sizing: border-box;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 15px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: black;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #ddd;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .footer-menu {
+      background-color: white;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+	  margin-top: 40px
+    }
+
+    .footer-menu a {
+      display: inline-block;
+      margin: 5px 10px;
+      text-decoration: none;
+      color: black;
+      font-size: 0.9em;
+    }
+
+    .footer-menu a:hover {
+      background-color: #ddd;
+    }
+		
+    @media (max-width: 600px) {
+	body {
+		padding: 10px;
+    }
+    .guest-section {
+        padding: 10px;
+	}
+    .guest-section h2 {
+        font-size: 1.2em;
+    }
+    .dropdown-menu a {
+        padding: 8px;
+        font-size: 0.9em;
+        }
+    }
+	
+	html, body {
+		height: 100%;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	main {
+		flex: 1;
+	}
+
+	
+</style>
+</head>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("dropdown-menu");
+    const overlay = document.getElementById("menu-overlay");
+    const isVisible = menu.classList.contains("show");
+    if (isVisible) {
+      menu.classList.remove("show");
+      overlay.classList.remove("show");
+      setTimeout(() => {
+        menu.style.display = "none";
+        overlay.style.display = "none";
+      }, 400);
+    } else {
+      menu.style.display = "block";
+      overlay.style.display = "block";
+      setTimeout(() => {
+        menu.classList.add("show");
+        overlay.classList.add("show");
+      }, 10);
+    }
+  }
+
+  function scrollToGuests(tableId) {
+    const section = document.getElementById('guests-' + tableId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+
+<body>
+    <div class="menu-icon" onclick="toggleMenu()">
+    <img src="menu-icon.png" alt="Menu Icon" />
+  </div>
+
+  <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+  <div id="dropdown-menu" class="dropdown-menu">
+    <button onclick="toggleMenu()" class="close-button">✕</button>
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="our favorite.html">Our favorite</a>
+    <a href="menu.html">Food&Drink</a>
+    <a href="photos.html">Photos</a>
+    <a href="table.html">Table</a>
+  </div>
+	<main>
+    <h1>座席表</h1>
+    <!-- SVG座席表 -->
+    <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+        <rect id="table-shinroshinp" x="300" y="50" width="200" height="50" fill="lightblue" stroke="black" onclick="scrollToGuests('shinroshinp')" />
+        <text x="400" y="80" font-size="20" text-anchor="middle" fill="black">新郎新婦</text>
+        <!-- テーブル A〜J -->
+        <circle id="table-A" cx="150" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('A')" />
+        <text x="150" y="205" font-size="20" text-anchor="middle" fill="black">A</text>
+        <circle id="table-B" cx="300" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('B')" />
+        <text x="300" y="205" font-size="20" text-anchor="middle" fill="black">B</text>
+        <circle id="table-C" cx="450" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('C')" />
+        <text x="450" y="205" font-size="20" text-anchor="middle" fill="black">C</text>
+        <circle id="table-D" cx="600" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('D')" />
+        <text x="600" y="205" font-size="20" text-anchor="middle" fill="black">D</text>
+        <circle id="table-E" cx="250" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('E')" />
+        <text x="250" y="355" font-size="20" text-anchor="middle" fill="black">E</text>
+        <circle id="table-F" cx="550" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('F')" />
+        <text x="550" y="355" font-size="20" text-anchor="middle" fill="black">F</text>
+        <circle id="table-G" cx="150" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('G')" />
+        <text x="150" y="505" font-size="20" text-anchor="middle" fill="black">G</text>
+        <circle id="table-H" cx="300" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('H')" />
+        <text x="300" y="505" font-size="20" text-anchor="middle" fill="black">H</text>
+        <circle id="table-I" cx="450" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('I')" />
+        <text x="450" y="505" font-size="20" text-anchor="middle" fill="black">I</text>
+        <circle id="table-J" cx="600" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('J')" />
+        <text x="600" y="505" font-size="20" text-anchor="middle" fill="black">J</text>
+    </svg>
+    <!-- ゲスト一覧 -->
+    <div id="guests">
+        <div id="guests-shinroshinp" class="guest-section">
+            <h2>新郎新婦</h2>
+            <ul><li>新郎 太郎</li><li>新婦 花子</li></ul>
+        </div>
+        <div id="guests-A" class="guest-section"><h2>テーブル A</h2><ul><li>山田 一郎</li><li>佐藤 二郎</li></ul></div>
+        <div id="guests-B" class="guest-section"><h2>テーブル B</h2><ul><li>鈴木 三郎</li><li>高橋 四郎</li></ul></div>
+        <div id="guests-C" class="guest-section"><h2>テーブル C</h2><ul><li>田中 五郎</li></ul></div>
+        <div id="guests-D" class="guest-section"><h2>テーブル D</h2><ul><li>伊藤 六郎</li></ul></div>
+        <div id="guests-E" class="guest-section"><h2>テーブル E</h2><ul><li>渡辺 七子</li></ul></div>
+        <div id="guests-F" class="guest-section"><h2>テーブル F</h2><ul><li>中村 八子</li></ul></div>
+        <div id="guests-G" class="guest-section"><h2>テーブル G</h2><ul><li>小林 九郎</li></ul></div>
+        <div id="guests-H" class="guest-section"><h2>テーブル H</h2><ul><li>加藤 十子</li></ul></div>
+        <div id="guests-I" class="guest-section"><h2>テーブル I</h2><ul><li>斎藤 十一</li></ul></div>
+        <div id="guests-J" class="guest-section"><h2>テーブル J</h2><ul><li>松本 十二</li></ul></div>
+    </div>
+	</main>
+	
+	<footer class="footer-menu">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="our favorite.html">Our favorite</a>
+    <a href="menu.html">Food&Drink</a>
+    <a href="photos.html">Photos</a>
+    <a href="table.html">Table</a>
+  </footer>
+	
+</body>
+</html>
