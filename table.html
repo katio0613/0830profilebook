@@ -230,33 +230,35 @@
     <a href="table.html">Table</a>
   </div>
 	<main>
-    <h1>座席表</h1>
-    <!-- SVG座席表 -->
-    <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-        <rect id="table-shinroshinp" x="300" y="50" width="200" height="50" fill="lightblue" stroke="black" onclick="scrollToGuests('shinroshinp')" />
-        <text x="400" y="80" font-size="20" text-anchor="middle" fill="black">新郎新婦</text>
-        <!-- テーブル A〜J -->
-        <circle id="table-A" cx="150" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('A')" />
-        <text x="150" y="205" font-size="20" text-anchor="middle" fill="black">A</text>
-        <circle id="table-B" cx="300" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('B')" />
-        <text x="300" y="205" font-size="20" text-anchor="middle" fill="black">B</text>
-        <circle id="table-C" cx="450" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('C')" />
-        <text x="450" y="205" font-size="20" text-anchor="middle" fill="black">C</text>
-        <circle id="table-D" cx="600" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('D')" />
-        <text x="600" y="205" font-size="20" text-anchor="middle" fill="black">D</text>
-        <circle id="table-E" cx="250" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('E')" />
-        <text x="250" y="355" font-size="20" text-anchor="middle" fill="black">E</text>
-        <circle id="table-F" cx="550" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('F')" />
-        <text x="550" y="355" font-size="20" text-anchor="middle" fill="black">F</text>
-        <circle id="table-G" cx="150" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('G')" />
-        <text x="150" y="505" font-size="20" text-anchor="middle" fill="black">G</text>
-        <circle id="table-H" cx="300" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('H')" />
-        <text x="300" y="505" font-size="20" text-anchor="middle" fill="black">H</text>
-        <circle id="table-I" cx="450" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('I')" />
-        <text x="450" y="505" font-size="20" text-anchor="middle" fill="black">I</text>
-        <circle id="table-J" cx="600" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('J')" />
-        <text x="600" y="505" font-size="20" text-anchor="middle" fill="black">J</text>
+  <h1>座席表</h1>
+  <!-- SVG座席表 -->
+  <div style="width: 100%; max-width: 800px; margin: auto;">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg">
+      <rect id="table-shinroshinp" x="300" y="50" width="200" height="50" fill="lightblue" stroke="black" onclick="scrollToGuests('shinroshinp')" />
+      <text x="400" y="80" font-size="20" text-anchor="middle" fill="black">新郎新婦</text>
+      <!-- テーブル A〜J -->
+      <circle id="table-A" cx="150" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('A')" />
+      <text x="150" y="205" font-size="20" text-anchor="middle" fill="black">A</text>
+      <circle id="table-B" cx="300" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('B')" />
+      <text x="300" y="205" font-size="20" text-anchor="middle" fill="black">B</text>
+      <circle id="table-C" cx="450" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('C')" />
+      <text x="450" y="205" font-size="20" text-anchor="middle" fill="black">C</text>
+      <circle id="table-D" cx="600" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('D')" />
+      <text x="600" y="205" font-size="20" text-anchor="middle" fill="black">D</text>
+      <circle id="table-E" cx="250" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('E')" />
+      <text x="250" y="355" font-size="20" text-anchor="middle" fill="black">E</text>
+      <circle id="table-F" cx="550" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('F')" />
+      <text x="550" y="355" font-size="20" text-anchor="middle" fill="black">F</text>
+      <circle id="table-G" cx="150" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('G')" />
+      <text x="150" y="505" font-size="20" text-anchor="middle" fill="black">G</text>
+      <circle id="table-H" cx="300" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('H')" />
+      <text x="300" y="505" font-size="20" text-anchor="middle" fill="black">H</text>
+      <circle id="table-I" cx="450" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('I')" />
+      <text x="450" y="505" font-size="20" text-anchor="middle" fill="black">I</text>
+      <circle id="table-J" cx="600" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('J')" />
+      <text x="600" y="505" font-size="20" text-anchor="middle" fill="black">J</text>
     </svg>
+  </div>
     <!-- ゲスト一覧 -->
     <div id="guests">
         <div id="guests-shinroshinp" class="guest-section">
