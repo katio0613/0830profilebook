@@ -170,6 +170,33 @@
 		flex: 1;
 	}
 	
+	<!--サブメニュー用CSS-->
+	.submenu {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease, opacity 0.4s ease;
+		opacity: 0;
+		margin-left: 20px;
+		text-align: center;
+	}
+
+	.submenu.show {
+		max-height: 200px; /* 必要に応じて調整 */
+		opacity: 1;
+	}
+
+	.submenu a {
+		font-size: 1em;
+		padding: 8px 0;
+		display: block;
+		color: #333;
+	}
+
+	.submenu a:hover {
+		background-color: #eee;
+	}
+
+	
   </style>
 </head>
 
@@ -179,16 +206,22 @@
   </div>
 
   <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
-
+	
+	<!--サブメニュー追加版メニューバー-->
   <div id="dropdown-menu" class="dropdown-menu">
-    <button onclick="toggleMenu()" class="close-button">✕</button>
-    <a href="index.html">Home</a>
-    <a href="profile.html">Profile</a>
-    <a href="our memory.html">Our Memory</a>
-    <a href="menu.html">Food&Drink</a>
-    <a href="photos.html">Photos</a>
-    <a href="table.html">Table</a>
+  <button onclick="toggleMenu()" class="close-button">✕</button>
+  <a href="index.html">Home</a>
+  <a href="profile.html">Profile</a>
+  <a href="our memory.html">Our Memory</a>
+  <a href="#" onclick="toggleSubMenu(event)">Food&Drink</a>
+  <div id="submenu" class="submenu">
+    <a href="food.html">Food</a>
+    <a href="drink.html">Drink</a>
   </div>
+  <a href="photos.html">Photos</a>
+  <a href="table.html">Table</a>
+</div>
+
 	
   <main>
   <h1>Food&Drink</h1>
@@ -204,27 +237,37 @@
     <a href="table.html">Table</a>
   </footer>
 
+	<!--サブメニュー追加版スクリプト-->
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById("dropdown-menu");
-      const overlay = document.getElementById("menu-overlay");
-      const isVisible = menu.classList.contains("show");
-      if (isVisible) {
-        menu.classList.remove("show");
-        overlay.classList.remove("show");
-        setTimeout(() => {
-          menu.style.display = "none";
-          overlay.style.display = "none";
-        }, 400);
-      } else {
-        menu.style.display = "block";
-        overlay.style.display = "block";
-        setTimeout(() => {
-          menu.classList.add("show");
-          overlay.classList.add("show");
-        }, 10);
-      }
+  function toggleMenu() {
+    const menu = document.getElementById("dropdown-menu");
+    const overlay = document.getElementById("menu-overlay");
+    const isVisible = menu.classList.contains("show");
+    if (isVisible) {
+      menu.classList.remove("show");
+      overlay.classList.remove("show");
+      setTimeout(() => {
+        menu.style.display = "none";
+        overlay.style.display = "none";
+        document.getElementById("submenu").style.display = "none"; // サブメニューも閉じる
+      }, 400);
+    } else {
+      menu.style.display = "block";
+      overlay.style.display = "block";
+      setTimeout(() => {
+        menu.classList.add("show");
+        overlay.classList.add("show");
+      }, 10);
     }
-  </script>
+  }
+
+  function toggleSubMenu(event) {
+  event.preventDefault();
+  const submenu = document.getElementById("submenu");
+  submenu.classList.toggle("show");
+}
+
+</script>
+
 </body>
 </html>
