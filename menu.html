@@ -237,26 +237,29 @@
 
   <script>
   function toggleMenu() {
-    const menu = document.getElementById("dropdown-menu");
-    const overlay = document.getElementById("menu-overlay");
-    const isVisible = menu.classList.contains("show");
-    if (isVisible) {
-      menu.classList.remove("show");
-      overlay.classList.remove("show");
-      setTimeout(() => {
-        menu.style.display = "none";
-        overlay.style.display = "none";
-        document.getElementById("submenu").style.display = "none"; // サブメニューも閉じる
-      }, 400);
-    } else {
-      menu.style.display = "block";
-      overlay.style.display = "block";
-      setTimeout(() => {
-        menu.classList.add("show");
-        overlay.classList.add("show");
-      }, 10);
-    }
+  const menu = document.getElementById("dropdown-menu");
+  const overlay = document.getElementById("menu-overlay");
+  const submenu = document.getElementById("submenu");
+  const isVisible = menu.classList.contains("show");
+
+  if (isVisible) {
+    menu.classList.remove("show");
+    overlay.classList.remove("show");
+    submenu.classList.remove("show"); // ← ここでサブメニューも閉じる
+    setTimeout(() => {
+      menu.style.display = "none";
+      overlay.style.display = "none";
+    }, 400);
+  } else {
+    menu.style.display = "block";
+    overlay.style.display = "block";
+    setTimeout(() => {
+      menu.classList.add("show");
+      overlay.classList.add("show");
+    }, 10);
   }
+}
+
 
   function toggleSubMenu(event) {
   event.preventDefault();
