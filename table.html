@@ -51,7 +51,8 @@
         .guest-section h2 {
             margin-top: 0;
         }
-        .menu-icon {
+	
+	.menu-icon {
       position: fixed;
       top: 10px;
       left: 10px;
@@ -120,6 +121,31 @@
     .dropdown-menu a:hover {
       background-color: #ddd;
     }
+	
+	.submenu {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease, opacity 0.4s ease;
+		opacity: 0;
+		margin-left: 20px;
+		text-align: center;
+	}
+	
+	.submenu.show {
+		max-height: 200px; /* 必要に応じて調整 */
+		opacity: 1;
+	}
+
+	.submenu a {
+		font-size: 1em;
+		padding: 8px 0;
+		display: block;
+		color: #333;
+	}
+
+	.submenu a:hover {
+		background-color: #eee;
+	}
 
     .close-button {
       position: absolute;
@@ -151,22 +177,67 @@
     .footer-menu a:hover {
       background-color: #ddd;
     }
+	
+	.footer-dropdown-container {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+		flex-wrap: wrap;
+		margin-top: 10px;
+	}
+
+	.footer-dropdown {
+		text-align: center;
+	}
+
+	.footer-submenu {
+		display: none;
+		margin-top: 5px;
+	}
+
+	.footer-submenu a {
+		display: block;
+		font-size: 0.85em;
+		color: #333;
+		text-decoration: none;
+		margin: 3px 0;
+	}
+
+	.footer-submenu a:hover {
+		background-color: #eee;
+	}
 		
     @media (max-width: 600px) {
-	body {
+	   body {
 		padding: 10px;
-    }
-    .guest-section {
+      }
+      .guest-section {
         padding: 10px;
-	}
-    .guest-section h2 {
+	  }
+      .guest-section h2 {
         font-size: 1.2em;
+      }
+	  .dropdown-menu a {
+        font-size: 1em;
+        padding: 12px;
+      }
+
+	  .footer-dropdown-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	  }
+
+	  .footer-dropdown {
+		width: 100%;
+		max-width: 300px;
+	  }
+
+	  .footer-submenu a {
+		font-size: 0.8em;
+	  }
     }
-    .dropdown-menu a {
-        padding: 8px;
-        font-size: 0.9em;
-        }
-    }
+	
 	
 	html, body {
 		height: 100%;
@@ -184,24 +255,40 @@
 </head>
 <script>
   function toggleMenu() {
-    const menu = document.getElementById("dropdown-menu");
-    const overlay = document.getElementById("menu-overlay");
-    const isVisible = menu.classList.contains("show");
-    if (isVisible) {
-      menu.classList.remove("show");
-      overlay.classList.remove("show");
-      setTimeout(() => {
-        menu.style.display = "none";
-        overlay.style.display = "none";
-      }, 400);
-    } else {
-      menu.style.display = "block";
-      overlay.style.display = "block";
-      setTimeout(() => {
-        menu.classList.add("show");
-        overlay.classList.add("show");
-      }, 10);
+	const menu = document.getElementById("dropdown-menu");
+	const overlay = document.getElementById("menu-overlay");
+	const submenu = document.getElementById("submenu");
+	const isVisible = menu.classList.contains("show");
+
+  if (isVisible) {
+    menu.classList.remove("show");
+    overlay.classList.remove("show");
+    submenu.classList.remove("show"); // ← ここでサブメニューも閉じる
+    setTimeout(() => {
+      menu.style.display = "none";
+      overlay.style.display = "none";
+    }, 400);
+  } else {
+    menu.style.display = "block";
+    overlay.style.display = "block";
+    setTimeout(() => {
+      menu.classList.add("show");
+      overlay.classList.add("show");
+    }, 10);
+  }
+  }
+
+  function toggleSubMenu(event, submenuId) {
+  event.preventDefault();
+  const allSubmenus = document.querySelectorAll('.submenu');
+  allSubmenus.forEach(menu => {
+    if (menu.id !== submenuId) {
+      menu.classList.remove('show');
     }
+  });
+
+  const submenu = document.getElementById(submenuId);
+  submenu.classList.toggle("show");
   }
 
   function scrollToGuests(tableId) {
@@ -209,6 +296,12 @@
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+  
+  function toggleFooterSubMenu(event, submenuId) {
+	event.preventDefault();
+	const submenu = document.getElementById(submenuId);
+	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
   }
 </script>
 
@@ -221,13 +314,25 @@
   <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
 
   <div id="dropdown-menu" class="dropdown-menu">
-    <button onclick="toggleMenu()" class="close-button">✕</button>
-    <a href="index.html">Home</a>
-    <a href="profile.html">Profile</a>
-    <a href="our memory.html">Our Memory</a>
-    <a href="menu.html">Food&Drink</a>
-    <a href="photos.html">Photos</a>
-    <a href="table.html">Table</a>
+	<button onclick="toggleMenu()" class="close-button">✕</button>
+	
+	<a href="index.html">Home</a>
+	<a href="#" onclick="toggleSubMenu(event, 'submenu-about')">About us</a>
+	<div id="submenu-about" class="submenu">
+		<a href="memory.html">二人の紹介</a>
+		<a href="favorite.html">My favorite</a>
+		<a href="QA.html">Q&A</a>
+	</div>
+	<a href="#" onclick="toggleSubMenu(event, 'submenu-concept')">私たちのこだわり</a>
+	<div id="submenu-concept" class="submenu">
+		<a href="playlist.html">Playlist</a>
+		<a href="gift.html">プチギフトの紹介</a>
+		<a href="book.html">プロフィールブックについて</a>
+	</div>
+	<a href="table.html">Table</a>
+	<a href="menu.html">Food&Drink</a>
+	<a href="photos.html">前撮り写真</a>
+	<a href="share.html">写真シェア</a>
   </div>
 	<main>
   <h1>座席表</h1>
@@ -278,14 +383,33 @@
     </div>
 	</main>
 	
-	<footer class="footer-menu">
-    <a href="index.html">Home</a>
-    <a href="profile.html">Profile</a>
-    <a href="our memory.html">Our Memory</a>
-    <a href="menu.html">Food&Drink</a>
-    <a href="photos.html">Photos</a>
-    <a href="table.html">Table</a>
-  </footer>
+<footer class="footer-menu">
+  <a href="index.html">Home</a>
+  <a href="table.html">Table</a>
+  <a href="menu.html">Food&Drink</a>
+  <a href="photos.html">前撮り写真</a>
+  <a href="share.html">写真シェア</a>
+
+  <div class="footer-dropdown-container">
+    <div class="footer-dropdown">
+      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
+      <div id="footer-submenu-about" class="footer-submenu">
+        <a href="memory.html">二人の紹介</a>
+        <a href="favorite.html">My favorite</a>
+        <a href="QA.html">Q&A</a>
+      </div>
+    </div>
+
+    <div class="footer-dropdown">
+      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
+      <div id="footer-submenu-concept" class="footer-submenu">
+        <a href="playlist.html">Playlist</a>
+        <a href="gift.html">プチギフトの紹介</a>
+        <a href="book.html">プロフィールブックについて</a>
+      </div>
+    </div>
+  </div>
+</footer>
 	
 </body>
 </html>

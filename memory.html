@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Food&Drink</title>
+  <title>Photos</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+	  background-color: #fef4f4; 
     }
 	
 	* {
@@ -35,6 +36,7 @@
 		max-width: 100%;
 		height: auto;
 	}
+
 
     .menu-icon {
       position: fixed;
@@ -195,11 +197,45 @@
       padding-top: 80px;
       text-align: center;
     }
+	
+	h2	{
+		padding-top: 20px;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		}
+	
+.chapter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #333; /* ← 下線を追加 */
+  padding-bottom: 5px; /* 下線との間に余白 */
+}
+
+
+.chapter-number {
+	font-weight: bold;
+	font-size: 1.5em; /* 少し大きめ */
+}
+
+.chapter-title {
+	text-align: right;
+}
+
 
     p {
       padding: 0 20px;
       text-align: center;
+	  margin-top: 0;
     }
+	
+	.left {
+		text-align:left;
+		margin-left: 0;
+		padding-left: 0;
+		}
 
     @media (max-width: 600px) {
 	  .full-width-img {
@@ -225,9 +261,7 @@
 	  .footer-submenu a {
 		font-size: 0.8em;
 	  }
-	}	
-
-	 
+    }
 	
 	html, body {
 		height: 100%;
@@ -239,6 +273,38 @@
 	main {
 		flex: 1;
 	}
+	
+	html {
+  scroll-behavior: smooth;
+}
+
+.inline-chapter-links {
+  text-align: left;
+  padding: 10px 20px;
+  font-size: 1.5em;
+}
+
+.inline-chapter-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.inline-chapter-links a:hover {
+  color: #007acc;
+}
+
+.full-width-img {
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+
+
+
 
 	
   </style>
@@ -272,13 +338,74 @@
 	<a href="photos.html">前撮り写真</a>
 	<a href="share.html">写真シェア</a>
   </div>
+  
+	<h1>Our Memory</h1>
+
+<div class="inline-chapter-links">
+  <a href="#chapter1">Chapter1&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">開斗の生い立ち&nbsp〉</span></a><br>
+  <a href="#chapter2">Chapter2&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">七海の生い立ち&nbsp〉</span></a><br>
+  <a href="#chapter3">Chapter3&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">2人の馴れ初め&nbsp〉</span></a>
+</div>
+
+
+
+  <main>
+	<div class="chapter-header" id="chapter1">
+		<div class="chapter-number">Chapter 01</div>
+		<div class="chapter-title">開斗の生い立ち</div>
+	</div>
+	<h2 class="left">幼少期</h2>
+	<p class="left">2000年3月23日生誕<br>
+	幼少期の見た目はとてもかわいく，保育園で母たちにモテモテだったらしい<br>
+	（今はその面影すら残っていないが．．．）
+	</p>
+	
+	<h2 class="left">少年期</h2>
+	<p class="left">高麗小・中学校で9年間を過ごす．<br>
+	田舎の学校過ぎて一学年40人程度，周りも自然だらけの場所．<br>
+	この時にサッカーに出会う
+	</p>
+
+	<div class="chapter-header" id="chapter2">
+		<div class="chapter-number">Chapter 02</div>
+		<div class="chapter-title">七海の生い立ち</div>
+	</div>
+	<h2 class="left">幼少期</h2>
+	<p class="left">1999年1月20日生誕<br>
+	実は佐賀県出身．<br>
+	（3歳までしか佐賀にいなかったため，佐賀の記憶は全くない）
+	</p>
+	
+	<h2 class="left">少女期</h2>
+	<p class="left">豊洲という大都会で過ごす<br>
+	中学受験をし，赤坂にある山脇学園に入学．<br>
+	ここで親友となるこなっちゃんに出会う．<br>
+	メンヘラさんたちとは学生時代はほとんどしゃべってないらしい．
+	</p>
+
+	<div class="chapter-header" id="chapter3">
+		<div class="chapter-number">Chapter 03</div>
+		<div class="chapter-title">二人の馴れ初め</div>
+	</div>
+	<h2 class="left">出会い</h2>
+	<img src="seaside.jpg" alt="説明文" class="full-width-img">
+	<p class="left">2021年10月頃<br>
+	初めて出会ったのはスターバックスの仕事<br>
+	七海はSSVとして，開斗はまだ入社して半年程度の時，七海の勤務先に開斗がヘルプとして手伝いに行く．<br>
+	この時は，特にお互いなんの印象もない<br>
+	</p>
+	
+	<h2 class="left">再会</h2>
+	<img src="rara3.jpg" alt="説明文" class="full-width-img">
+	<p class="left">七海がまさかのらら3に副店長として異動．<br>
+	この時には開斗はSSVとしてコントロールを任せられる程度に成長<br>
+	初めての1on1であまりよくない印象を与えてたらしい<br>
+	けど，なぜか2人で飲みに行くことに．．．
+	</p>
 
 	
-  <main>
-  <h1>Food&Drink</h1>
-  <p>Details about the Food&Drink...</p>
   </main>
-  
+
 <footer class="footer-menu">
   <a href="index.html">Home</a>
   <a href="table.html">Table</a>
@@ -307,10 +434,8 @@
   </div>
 </footer>
 
-
-
   <script>
-  function toggleMenu() {
+    function toggleMenu() {
 	const menu = document.getElementById("dropdown-menu");
 	const overlay = document.getElementById("menu-overlay");
 	const submenu = document.getElementById("submenu");
@@ -346,13 +471,12 @@
   const submenu = document.getElementById(submenuId);
   submenu.classList.toggle("show");
   }
-
+  
   function toggleFooterSubMenu(event, submenuId) {
 	event.preventDefault();
 	const submenu = document.getElementById(submenuId);
 	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
   }
   </script>
-
 </body>
 </html>

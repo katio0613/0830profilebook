@@ -14,6 +14,32 @@
       position: relative;
       z-index: 1;
     }
+	
+	@media (max-width: 600px) {
+	  .full-width-img {
+		padding: 0 16px; /* スマホでは左右に16pxの余白 */
+	  }
+	  
+      .dropdown-menu a {
+        font-size: 1em;
+        padding: 12px;
+      }
+
+	  .footer-dropdown-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	  }
+
+	  .footer-dropdown {
+		width: 100%;
+		max-width: 300px;
+	  }
+
+	  .footer-submenu a {
+		font-size: 0.8em;
+	  }
+	}
 
     .slideshow-section {
 		position: relative;
@@ -55,6 +81,161 @@
 		padding: 20px;
 	}
 	
+	.menu-icon {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+    }
+
+    .menu-icon img {
+      width: 50px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 9;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .menu-overlay.show {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+	
+	.dropdown-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: 10;
+      padding: 60px 20px 20px;
+      box-sizing: border-box;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 15px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: black;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #ddd;
+    }
+	
+	.submenu {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease, opacity 0.4s ease;
+		opacity: 0;
+		margin-left: 20px;
+		text-align: center;
+	}
+	
+	.submenu.show {
+		max-height: 200px; /* 必要に応じて調整 */
+		opacity: 1;
+	}
+
+	.submenu a {
+		font-size: 1em;
+		padding: 8px 0;
+		display: block;
+		color: #333;
+	}
+
+	.submenu a:hover {
+		background-color: #eee;
+	}
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .footer-menu {
+      background-color: white;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+	  margin-top: 40px
+    }
+
+    .footer-menu a {
+      display: inline-block;
+      margin: 5px 10px;
+      text-decoration: none;
+      color: black;
+      font-size: 0.9em;
+    }
+
+    .footer-menu a:hover {
+      background-color: #ddd;
+    }
+	
+	.footer-dropdown-container {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+		flex-wrap: wrap;
+		margin-top: 10px;
+	}
+
+	.footer-dropdown {
+		text-align: center;
+	}
+
+	.footer-submenu {
+		display: none;
+		margin-top: 5px;
+	}
+
+	.footer-submenu a {
+		display: block;
+		font-size: 0.85em;
+		color: #333;
+		text-decoration: none;
+		margin: 3px 0;
+	}
+
+	.footer-submenu a:hover {
+		background-color: #eee;
+	}
+	
 	.centered-section {
 		display: flex;
 		flex-direction: column;
@@ -81,67 +262,7 @@
 		margin-bottom: 0px;
 	}
 
-    .menu-icon {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 3;
-    }
-
-    .menu-icon img {
-      width: 60px;
-      height: auto;
-      cursor: pointer;
-    }
-
-    .menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 9;
-}
-
-.dropdown-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.95);
-  z-index: 10;
-  padding: 60px 20px 20px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 20px;
-  font-size: 1.5em;
-  text-decoration: none;
-  color: black;
-}
-
-.dropdown-menu a:hover {
-  background-color: #ddd;
-}
-
-.close-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2em;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-
+    
     h1.typing {
       display: inline-block;
       overflow: hidden;
@@ -550,79 +671,48 @@
 		text-align: right;
 		font-size: 1.2em; /* 必要に応じて調整 */
 	}
-	
-	.footer-menu {
-  background-color: white;
-  border-top: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-  margin-top: 40px
-}
-
-.footer-menu a {
-  display: inline-block;
-  margin: 5px 10px;
-  text-decoration: none;
-  color: black;
-}
-
-.footer-menu a:hover {
-  background-color: #ddd;
-}
-
-/* アニメーション用のクラス */
-.dropdown-menu {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-}
-
-.dropdown-menu.show {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.menu-overlay {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.menu-overlay.show {
-  display: block;
-  opacity: 1;
-  pointer-events: auto;
-}
 
 
 		
   </style>
 
 <script>
-function toggleMenu() {
-  const menu = document.getElementById("dropdown-menu");
-  const overlay = document.getElementById("menu-overlay");
-  const isVisible = menu.classList.contains("show");
+  function toggleMenu() {
+	const menu = document.getElementById("dropdown-menu");
+	const overlay = document.getElementById("menu-overlay");
+	const submenu = document.getElementById("submenu");
+	const isVisible = menu.classList.contains("show");
 
   if (isVisible) {
     menu.classList.remove("show");
     overlay.classList.remove("show");
+    submenu.classList.remove("show"); // ← ここでサブメニューも閉じる
     setTimeout(() => {
       menu.style.display = "none";
       overlay.style.display = "none";
-    }, 400); // アニメーション時間と合わせる
+    }, 400);
   } else {
     menu.style.display = "block";
     overlay.style.display = "block";
     setTimeout(() => {
       menu.classList.add("show");
       overlay.classList.add("show");
-    }, 10); // 少し遅らせてトランジションを発火
+    }, 10);
   }
-}
+  }
+
+  function toggleSubMenu(event, submenuId) {
+  event.preventDefault();
+  const allSubmenus = document.querySelectorAll('.submenu');
+  allSubmenus.forEach(menu => {
+    if (menu.id !== submenuId) {
+      menu.classList.remove('show');
+    }
+  });
+
+  const submenu = document.getElementById(submenuId);
+  submenu.classList.toggle("show");
+  }
 
   const images = ['back1.JPG', 'back2.JPG', 'back3.JPG'];
   let index = 0;
@@ -641,6 +731,12 @@ function toggleMenu() {
       setInterval(changeBackground, 5000);
     }
   });
+  
+  function toggleFooterSubMenu(event, submenuId) {
+	event.preventDefault();
+	const submenu = document.getElementById(submenuId);
+	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+  }
 </script>
 
 
@@ -675,23 +771,36 @@ function toggleMenu() {
 </head>
 <body class="slideshow">
 
-<!-- メニューアイコン指定 -->
-	<div class="menu-icon" onclick="toggleMenu()">
-		<img src="menu-icon.png" alt="Menu Icon" />
-	</div>
-<!-- 背景クリック用オーバーレイ -->
-	<div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+  <!--メニューアイコン指定-->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <img src="menu-icon.png" alt="Menu Icon" />
+  </div>
+  
+  <!--メニューアイコンの背景設定-->
+  <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
 
-<!-- メニュー本体 -->
-	<div id="dropdown-menu" class="dropdown-menu">
-		<button onclick="toggleMenu()" class="close-button">✕</button>
-		<a href="index.html">Home</a>
-		<a href="profile.html">Profile</a>
-		<a href="our memory.html">Our Memory</a>
-		<a href="menu.html">Food&Drink</a>
-		<a href="photos.html">Photos</a>
-		<a href="table.html">Table</a>
+  <!--メニューアイコン設定-->
+  <div id="dropdown-menu" class="dropdown-menu">
+	<button onclick="toggleMenu()" class="close-button">✕</button>
+	
+	<a href="index.html">Home</a>
+	<a href="#" onclick="toggleSubMenu(event, 'submenu-about')">About us</a>
+	<div id="submenu-about" class="submenu">
+		<a href="memory.html">二人の紹介</a>
+		<a href="favorite.html">My favorite</a>
+		<a href="QA.html">Q&A</a>
 	</div>
+	<a href="#" onclick="toggleSubMenu(event, 'submenu-concept')">私たちのこだわり</a>
+	<div id="submenu-concept" class="submenu">
+		<a href="playlist.html">Playlist</a>
+		<a href="gift.html">プチギフトの紹介</a>
+		<a href="book.html">プロフィールブックについて</a>
+	</div>
+	<a href="table.html">Table</a>
+	<a href="menu.html">Food&Drink</a>
+	<a href="photos.html">前撮り写真</a>
+	<a href="share.html">写真シェア</a>
+  </div>
 
   
 <!-- セクション1：スライドショー -->
@@ -880,13 +989,33 @@ c29 0 70 -5 90 -10z" class="svg-elem-11"></path>
   </section>
 </a>
 
+<!--フッター設定-->
 <footer class="footer-menu">
   <a href="index.html">Home</a>
-  <a href="profile.html">Profile</a>
-  <a href="our memory.html">Our Memory</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">Photos</a>
   <a href="table.html">Table</a>
+  <a href="menu.html">Food&Drink</a>
+  <a href="photos.html">前撮り写真</a>
+  <a href="share.html">写真シェア</a>
+
+  <div class="footer-dropdown-container">
+    <div class="footer-dropdown">
+      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
+      <div id="footer-submenu-about" class="footer-submenu">
+        <a href="memory.html">二人の紹介</a>
+        <a href="favorite.html">My favorite</a>
+        <a href="QA.html">Q&A</a>
+      </div>
+    </div>
+
+    <div class="footer-dropdown">
+      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
+      <div id="footer-submenu-concept" class="footer-submenu">
+        <a href="playlist.html">Playlist</a>
+        <a href="gift.html">プチギフトの紹介</a>
+        <a href="book.html">プロフィールブックについて</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 
