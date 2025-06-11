@@ -6,10 +6,18 @@
   <title>My favorite</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+	body {
+    margin: 0;
+	font-family: Arial, sans-serif;
+    padding: 0;
+    background: #fafad2;
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	z-index: 1;
+    gap: 30px; /* セット間のスペースを縮小 */
+  }
 	
 	* {
 		box-sizing: border-box;
@@ -190,6 +198,94 @@
 	.footer-submenu a:hover {
 		background-color: #eee;
 	}
+	
+	.overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 70%;
+	height: 70%;
+	background: rgba(255, 255, 255, 0.95);
+	padding: 20px;
+	font-size: 16px;
+	border-radius: 10px;
+	z-index: 200;
+	display: none;
+	text-align: center;
+	animation: fadeInScale 0.3s ease forwards;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+
+
+  .circle-container {
+	position: relative;
+	width: 100%;
+	max-width: 600px;
+	height: 400px;
+	margin: 0 auto 60px auto; 
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+  }
+
+
+  .container1 {
+    background-image: url('kaito.jpg');
+  }
+
+  .container2 {
+    background-image: url('natsumi.jpg');
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: visible;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .dropdown {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	background: white;
+	border: 1px solid #ccc;
+	padding: 20px;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+	z-index: 100;
+  }
+
+  .dropdown.show {
+	opacity: 1;
+	pointer-events: auto;
+  }
+
+  @keyframes fadeInScale {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.8);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+  }
 
     h1 {
       padding-top: 80px;
@@ -275,8 +371,129 @@
 
 	
   <main>
-  <h1>好きなもの</h1>
-  <p>Details about the My favorite...</p>
+  <h1>私の<span style="color:red; font-size: 1.5em;">好き</span>なもの</h1>
+  <!-- 1つ目のセット -->
+  <div class="circle-container container1">
+	<div class="overlay"></div>
+    <div class="icon" style="top: 100px; left: 40px;">
+      <img src="icon.png" alt="A1">
+		<div class="dropdown">
+		 <h2>コーヒー</h2>
+            カフェで飲むのも家で入れるのもどっちも好き！
+            <br>好きすぎてエスプレッソマシンを買ってしまうほど．．．
+			<br>（一人暮らしの時はインテリア）
+		</div>
+    </div>
+    <div class="icon" style="top: 170px; left: 0px;">
+      <img src="icon.png" alt="B1">
+		<div class="dropdown">
+		 <h2>サッカー観戦</h2>
+			海外サッカーが好き
+            <br>黄金時代のバルサが人生で一番好きだけど，
+            <br>今はプレミアばっか見ている
+		</div>
+    </div>
+    <div class="icon" style="top: 240px; left: 40px;">
+      <img src="icon.png" alt="C1">
+		<div class="dropdown">
+		 <h2>ゲーム</h2>
+			はまったら16時間ぶっ通しや，
+            <br>3日で睡眠時間3時間になったこともあるほど
+            <br>なつみにうるさいと度々怒られる
+            <br>（本気でうるさくて実家では寝れないとの苦情あり）
+		</div>
+    </div>
+    <div class="icon" style="top: 100px; left: 500px;">
+      <img src="icon.png" alt="D1">
+		<div class="dropdown">
+		 <h2>お酒</h2>
+			日本酒，焼酎以外なら基本飲める
+            <br>最近は克服したハイボールにはまっている
+            <br>お酒は飲んでも飲まれるな！！
+		</div>
+    </div>
+    <div class="icon" style="top: 170px; left: 540px;">
+      <img src="icon.png" alt="E1">
+		<div class="dropdown">
+		 <h2>魚（捌く）</h2>
+			いつからはまったかわからないが，
+            <br>なんか捌きたくなってしまう
+            <br>一番捌くのは鯛！
+            <br>鯛って骨から出しも取れて捨てるとこがないので最高！！
+		</div>
+    </div>
+    <div class="icon" style="top: 240px; left: 500px;">
+      <img src="icon.png" alt="F1">
+		<div class="dropdown">
+		 <h2>うどん</h2>
+			3食うどんでもいいってくらい大好き！
+            <br>香川に行ったときには1日で5件（7~8杯分）食べた
+            <br>丸亀製麵では死ぬほどネギを入れる
+		</div>
+    </div>
+  </div>
+
+  <!-- 2つ目のセット -->
+  <div class="circle-container container2">
+  <div class="overlay"></div>
+    <div class="icon" style="top: 100px; left: 40px;">
+      <img src="icon.png" alt="A2">
+		<div class="dropdown">
+		 <h2>音楽</h2>
+			音楽は世界を救うと思っている（本気で）
+            <br>いいと思うアーティストが多すぎて
+            <br>一番好きなアーティストを聞かれるといつも困る
+            <br>フェスは1年に3回くらいの信頼度です！
+		</div>
+    </div>
+    <div class="icon" style="top: 170px; left: 0px;">
+      <img src="icon.png" alt="B2">
+		<div class="dropdown">
+		 <h2>動物</h2>
+			実家に世界一かわいいマンチカンのいずみちゃんがいる！
+            <br>人見知りすぎて触るたび，嫌ってされて逃げられる
+		</div>
+    </div>
+    <div class="icon" style="top: 240px; left: 40px;">
+      <img src="icon.png" alt="C2">
+		<div class="dropdown">
+		 <h2>旅行</h2>
+			お金がないから日本しか旅行してないけど
+            <br>本当は海外も行きたい
+            <br>地味にあと8県で日本制覇。
+            <br>冬は北陸，夏は四国がおすすめ！！
+		</div>
+    </div>
+    <div class="icon" style="top: 100px; left: 500px;">
+      <img src="icon.png" alt="D2">
+		<div class="dropdown">
+		 <h2>ポテト</h2>
+			居酒屋行ったら絶対ポテトを頼む！！
+            <br>同棲始めて冷凍庫が大きくなったから
+            <br>冷凍ポテト常備してる♡
+		</div>
+    </div>
+    <div class="icon" style="top: 170px; left: 540px;">
+      <img src="icon.png" alt="E2">
+		<div class="dropdown">
+		 <h2>写真</h2>
+			※好きだからと言って上手いというわけではありません
+            <br>最近はフィルムカメラ一筋！
+            <br>現像する時までちゃんと取れてるかわからない
+            <br>このドキドキがやめられない
+		</div>
+    </div>
+    <div class="icon" style="top: 240px; left: 500px;">
+      <img src="icon.png" alt="F2">
+		<div class="dropdown">
+		 <h2>パン</h2>
+			一生パン派
+            <br>ハード系が好きなのでフランスパンにはうるさいよ
+            <br>おすすめのパン屋があったら教えてください
+            <br>気が向いたら行きます！
+		</div>
+    </div>
+  </div>
   </main>
   
 <!--
@@ -355,6 +572,41 @@
 	const submenu = document.getElementById(submenuId);
 	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
   }
+  
+  document.querySelectorAll('.icon').forEach(icon => {
+	icon.addEventListener('click', function(event) {
+    event.stopPropagation();
+
+    const container = this.closest('.circle-container');
+    const overlay = container.querySelector('.overlay');
+    const dropdown = this.querySelector('.dropdown');
+
+    // 表示するテキストを取得
+    const content = dropdown.innerHTML;
+
+    // 他のオーバーレイを非表示に
+    document.querySelectorAll('.overlay').forEach(o => o.style.display = 'none');
+
+    // オーバーレイに内容をセットして表示
+    overlay.innerHTML = dropdown.innerHTML;
+	overlay.style.display = 'flex';
+	overlay.style.animation = 'fadeInScale 0.3s ease forwards';
+
+	// 中のテキストを中央揃えに
+	overlay.style.textAlign = 'center';
+
+	// アニメーションを一度無効にして再適用
+	overlay.style.animation = 'none';
+	overlay.offsetHeight; // ← これで再描画を強制
+	overlay.style.animation = 'fadeInScale 0.3s ease forwards';
+
+	});
+  });
+
+// 背景クリックでオーバーレイを閉じる
+  document.addEventListener('click', function() {
+	document.querySelectorAll('.overlay').forEach(o => o.style.display = 'none');
+  });
   </script>
 
 </body>
