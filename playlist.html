@@ -207,17 +207,24 @@
       padding-top: 80px;
       text-align: center;
     }
-	
-	h2 {
-	  text-align: center;
-	  margin-bottom: 0px;
-	}
 
     p {
       text-align: center;
-	  margin-bottom: 10px; 
 	  padding: 0;
     }
+
+	.emphasis {
+	  font-size: 1.2em;
+	  font-weight: bold;
+	  display: inline-block;     
+	  margin-bottom: 5px;      
+	}
+	
+	.comment{
+	  text-align: left;
+	  padding: 0;
+	}
+	
 
     @media (max-width: 600px) {
 	  .full-width-img {
@@ -235,28 +242,21 @@
 		gap: 10px;
 	  }
 	  
-	  .container {
-		display: flex; 
-		flex-direction: column;
-		width: 90%;
-		max-width: 100%;
-		padding: 10px;
-		margin: 10px auto;
-	  }
+  .container {
+    display: flex;
+    width: 95%;
+    margin: 10px auto;
+    padding: 10px;
+  }
 
-	  .image-box {
-		margin-right: 0;
-		margin-bottom: 10px;
-	  }
+  .image-box {
+    margin-bottom: 10px;
+  }
 
-	  .text-box {
-		font-size: 16px;
-	  }
-	}
-
-
-	}
-
+  .text-box {
+    font-size: 10px; /* 小さすぎず読みやすいサイズ */
+  }
+}
 	 
 	
 	html, body {
@@ -332,10 +332,11 @@
       </a>
     </div>
     <div class="text-box">
-	  <h2>おもちゃ帝国/NEE</h2>
-      <p>新郎がフェスに行くきっかけになったバンドからの1曲
-	  <br>この曲は新婦の七海がPVの撮影をしています!
-	  <br>聞けば聞くほど癖になる一曲
+	  <p class="comment">
+	  <span class="emphasis">おもちゃ帝国/NEE</span>
+      <br>新郎がフェスに行くきっかけになったバンドからの1曲.
+	  この曲は新婦の七海がPVの撮影をしています!
+	  聞けば聞くほど癖になる一曲
 	  </p>
     </div>
   </div>
@@ -348,9 +349,10 @@
       </a>
     </div>
     <div class="text-box">
-	  <h2>ラストバージン/RADWIMPS</h2>
-      <p>七海が絶対に結婚式で流したいと思っていた曲
-	  <br>なんか紹介を加えたいけど思いつかなかったよ～
+	  <p class="comment">
+	  <span class="emphasis">ラストバージン/RADWIMPS</span>
+      <br>七海が絶対に結婚式で流したいと思っていた曲.
+	  なんか紹介を加えたいけど思いつかなかったよ～
 	  </p>
     </div>
   </div>
