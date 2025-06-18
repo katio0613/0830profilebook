@@ -140,65 +140,28 @@
       border: none;
       cursor: pointer;
     }
-
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-	  margin-top: 40px
-    }
-
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
-    }
 	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
+	img {
+		max-width: 100%;
+		height: auto;
 	}
-
-	.footer-dropdown {
-		text-align: center;
-	}
-
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
-
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
-
-	.footer-submenu a:hover {
-		background-color: #eee;
+	
+	.full-width-img {
+	  max-width: 70vw;
+	  height: auto;
+	  display: block;
+	  margin: 20px auto;
 	}
 
     h1 {
-      padding-top: 80px;
+      padding-top: 20px;
+	  font-size: 20px;
       text-align: center;
     }
 
     p {
       padding: 0 20px;
-      text-align: center;
+      text-align: justify;
     }
 
     @media (max-width: 600px) {
@@ -275,39 +238,20 @@
 
 	
   <main>
-  <h1>プロフィールブックについて</h1>
-  <p>Details about the Book...</p>
+  <h1>実はこのプロフィールブック．．．</h1>
+  <p style="font-size: 1.2em;">新郎が自作しました！</p>
+  <img src="kaito1.JPG" alt="わっち" class="full-width-img">
+	<p>紙ではなくWebという新しい形に挑戦し、デザインや機能にとことんこだわって制作しています。
+	<br>現在はまだあまり主流ではない形式ですが、ゲストがスマホで気軽に閲覧できるように、見やすさ・操作性・演出にも工夫を凝らしました。
+	（ペーパーレスで環境にも優しい）
+	<br>テンプレートが少ない中で、ゼロから構築したオリジナルのデザインです。
+	<br>せっかく頑張ったので、ちょっとした自慢でした。みんな褒めてね。
+	</p>
+	<p>あ、もし、このWebプロフィールブックがいいなって思ったかつ、今後結婚式を挙げる予定のあるゲストの方がいらっしゃったら、連絡してください
+	<br>作れちゃうかも！
+	</p>
   </main>
   
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
 
 
 
