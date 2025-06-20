@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table</title>
     <link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial,sans-serif;
-            padding: 20px;
-        }
+    body {
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+		letter-spacing: 1px;
+		padding: 20px;
+    }
 		
 		* {
 		box-sizing: border-box;
@@ -44,12 +46,13 @@
             margin: auto;
         }
         .guest-section {
-            margin-top: 50px;
+            margin-top: 0;
             padding: 20px;
             border-top: 2px solid #ccc;
         }
         .guest-section h2 {
             margin-top: 0;
+			margin-bottom: 0;
         }
 	
 	.menu-icon {
@@ -156,55 +159,24 @@
       border: none;
       cursor: pointer;
     }
-
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-	  margin-top: 40px
-    }
-
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
-    }
 	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
+	.guest-section ul li {
+	  display: flex;
+	  justify-content: space-between; /* 左右に配置 */
+	  align-items: center;            /* 垂直方向中央揃え */
+	  height: 20px;                   /* 高さは調整可能 */
+	  padding: 0;
 	}
 
-	.footer-dropdown {
-		text-align: center;
+	.name {
+	  width: 33%;
+	  text-align: left;               /* 左寄せ */
 	}
 
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
-
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
-
-	.footer-submenu a:hover {
-		background-color: #eee;
+	.comment {
+	  width: 66%;
+	  text-align: center;              /* 中央 */
+	  white-space: nowrap;
 	}
 		
     @media (max-width: 600px) {
@@ -221,22 +193,35 @@
         font-size: 1em;
         padding: 12px;
       }
+	  
+  .guest-section ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 4px 0;
+  }
 
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
+  .name {
+    width: 40%;
+    font-size: 13px; /* スマホ向けに少し小さめ */
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 0;
+	margin-left: 0;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
 
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
-    }
+  .comment {
+    width: 60%;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 	
 	
 	html, body {
@@ -340,79 +325,129 @@
   <!-- SVG座席表 -->
   <div style="width: 100%; max-width: 800px; margin: auto;">
     <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg">
-      <rect id="table-shinroshinp" x="300" y="50" width="200" height="50" fill="lightblue" stroke="black" onclick="scrollToGuests('shinroshinp')" />
-      <text x="400" y="80" font-size="20" text-anchor="middle" fill="black">新郎新婦</text>
-      <!-- テーブル A〜J -->
-      <circle id="table-A" cx="150" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('A')" />
-      <text x="150" y="205" font-size="20" text-anchor="middle" fill="black">A</text>
-      <circle id="table-B" cx="300" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('B')" />
-      <text x="300" y="205" font-size="20" text-anchor="middle" fill="black">B</text>
-      <circle id="table-C" cx="450" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('C')" />
-      <text x="450" y="205" font-size="20" text-anchor="middle" fill="black">C</text>
-      <circle id="table-D" cx="600" cy="200" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('D')" />
-      <text x="600" y="205" font-size="20" text-anchor="middle" fill="black">D</text>
-      <circle id="table-E" cx="250" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('E')" />
-      <text x="250" y="355" font-size="20" text-anchor="middle" fill="black">E</text>
-      <circle id="table-F" cx="550" cy="350" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('F')" />
-      <text x="550" y="355" font-size="20" text-anchor="middle" fill="black">F</text>
-      <circle id="table-G" cx="150" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('G')" />
-      <text x="150" y="505" font-size="20" text-anchor="middle" fill="black">G</text>
-      <circle id="table-H" cx="300" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('H')" />
-      <text x="300" y="505" font-size="20" text-anchor="middle" fill="black">H</text>
-      <circle id="table-I" cx="450" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('I')" />
-      <text x="450" y="505" font-size="20" text-anchor="middle" fill="black">I</text>
-      <circle id="table-J" cx="600" cy="500" r="40" fill="lightgreen" stroke="black" onclick="scrollToGuests('J')" />
-      <text x="600" y="505" font-size="20" text-anchor="middle" fill="black">J</text>
-    </svg>
+	<!-- 新郎新婦 -->
+		<rect id="table-shinroshinp" x="300" y="50" width="200" height="50" fill="lightblue" stroke="black" />
+		<text x="400" y="80" font-size="20" text-anchor="middle" fill="black">新郎新婦</text>
+
+	<!-- テーブル A〜J（画像アイコン） -->
+		<image id="table-A" x="110" y="160" width="80" height="80" href="icon.png" onclick="scrollToGuests('A')" />
+
+		<image id="table-B" x="260" y="160" width="80" height="80" href="icon.png" onclick="scrollToGuests('B')" />
+
+		<image id="table-C" x="410" y="160" width="80" height="80" href="icon.png" onclick="scrollToGuests('C')" />
+
+		<image id="table-D" x="560" y="160" width="80" height="80" href="icon.png" onclick="scrollToGuests('D')" />
+
+		<image id="table-E" x="210" y="310" width="80" height="80" href="icon.png" onclick="scrollToGuests('E')" />
+
+		<image id="table-F" x="510" y="310" width="80" height="80" href="icon.png" onclick="scrollToGuests('F')" />
+
+		<image id="table-G" x="110" y="460" width="80" height="80" href="icon.png" onclick="scrollToGuests('G')" />
+
+		<image id="table-H" x="260" y="460" width="80" height="80" href="icon.png" onclick="scrollToGuests('H')" />
+
+		<image id="table-I" x="410" y="460" width="80" height="80" href="icon.png" onclick="scrollToGuests('I')" />
+
+		<image id="table-J" x="560" y="460" width="80" height="80" href="icon.png" onclick="scrollToGuests('J')" />
+	</svg>
   </div>
     <!-- ゲスト一覧 -->
     <div id="guests">
-        <div id="guests-shinroshinp" class="guest-section">
-            <h2>新郎新婦</h2>
-            <ul><li>新郎 太郎</li><li>新婦 花子</li></ul>
-        </div>
-        <div id="guests-A" class="guest-section"><h2>テーブル A</h2><ul><li>山田 一郎</li><li>佐藤 二郎</li></ul></div>
-        <div id="guests-B" class="guest-section"><h2>テーブル B</h2><ul><li>鈴木 三郎</li><li>高橋 四郎</li></ul></div>
-        <div id="guests-C" class="guest-section"><h2>テーブル C</h2><ul><li>田中 五郎</li></ul></div>
-        <div id="guests-D" class="guest-section"><h2>テーブル D</h2><ul><li>伊藤 六郎</li></ul></div>
-        <div id="guests-E" class="guest-section"><h2>テーブル E</h2><ul><li>渡辺 七子</li></ul></div>
-        <div id="guests-F" class="guest-section"><h2>テーブル F</h2><ul><li>中村 八子</li></ul></div>
-        <div id="guests-G" class="guest-section"><h2>テーブル G</h2><ul><li>小林 九郎</li></ul></div>
-        <div id="guests-H" class="guest-section"><h2>テーブル H</h2><ul><li>加藤 十子</li></ul></div>
-        <div id="guests-I" class="guest-section"><h2>テーブル I</h2><ul><li>斎藤 十一</li></ul></div>
-        <div id="guests-J" class="guest-section"><h2>テーブル J</h2><ul><li>松本 十二</li></ul></div>
+		<div id="guests-A" class="guest-section">
+		 <h2>テーブル A</h2>
+		 <h2>新郎 大学&ゲーム仲間</h2>
+		 <ul>
+		  <li><span class="name">北澤 正好</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">北澤 瑞樹</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">北澤 晴</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">渡邉 良祐</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">満石 海</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">水上 直輝</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">野口 歩睦</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">保坂 優斗</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">高橋 建登</span><span class="comment">よろしくお願いします</span></li>
+		 </ul>
+		</div>
+
+        
+		<div id="guests-B" class="guest-section">
+		 <h2>テーブル B</h2>
+		 <h2>新郎 高校恩師＆友人</h2>
+		 <ul>
+		  <li><span class="name">鈴木 崇広</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">西村 駿之介</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">宮崎 将一郎</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">荻原 廉</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">吉田 昂平</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">本庄 莉子</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">内田 こなつ</span><span class="comment">よろしくお願いします</span></li>
+		 </ul>
+		</div>
+        
+		<div id="guests-C" class="guest-section">
+		 <h2>テーブル C</h2>
+		 <h2>新婦 高校恩師＆友人</h2>
+		 <ul>
+		  <li>田中 五郎</li>
+		 </ul>
+		</div>
+        
+		<div id="guests-D" class="guest-section">
+		 <h2>テーブル D</h2>
+		 <h2>新婦 スタバ関係者①</h2>
+		 <ul>
+		  <li>伊藤 六郎</li>
+		 </ul>
+		</div>
+        
+		<div id="guests-E" class="guest-section">
+		 <h2>テーブル E</h2>
+		 <h2>新郎 幼馴染&会社同期</h2>
+		 <ul>
+		  <li>渡辺 七子</li>
+		 </ul>
+		</div>
+        
+		<div id="guests-F" class="guest-section">
+		 <h2>テーブル F</h2>
+		 <h2>新婦 スタバ関係者②</h2>
+		 <ul>
+		  <li>中村 八子</li>
+		 </ul>
+		</div>
+        
+		<div id="guests-G" class="guest-section">
+		 <h2>テーブル G</h2>
+		 <h2>新郎 親戚</h2>
+		 <ul>
+		  <li>小林 九郎</li>
+		 </ul>
+		</div>
+        
+		<div id="guests-H" class="guest-section">
+		 <h2>テーブル H</h2>
+		 <h2>両家 親族</h2>
+		 <ul>
+		  <li>加藤 十子</li>
+		 </ul>
+		</div>
+        
+		<div id="guests-I" class="guest-section">
+		 <h2>テーブル I</h2>
+		 <h2>らら３ キッズ</h2>
+		 <ul>
+		  <li>斎藤 十一</li>
+		 </ul>
+		</div>
+        
+		<div id="guests-J" class="guest-section">
+		 <h2>テーブル J</h2>
+		 <h2>らら３ 朝の顔</h2>
+		 <ul>
+		  <li>松本 十二</li>
+		 </ul>
+		</div>
     </div>
 	</main>
-	
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
-	
 </body>
 </html>

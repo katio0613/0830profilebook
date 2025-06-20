@@ -1,8 +1,9 @@
 body {
-      font-family: Arial, sans-serif;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+	  letter-spacing: 1px;
       margin: 0;
       padding: 0;
-      background-color: #478384;
+      background-color: #458054;
       position: relative;
       z-index: 1;
 }
