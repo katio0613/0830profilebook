@@ -143,58 +143,65 @@
       cursor: pointer;
     }
 
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-	  margin-top: 40px
+    .chat-container {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
+    .message {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 
-    .footer-menu a:hover {
-      background-color: #ddd;
-    }
-	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
-	}
+.message.left {
+  justify-content: flex-start;
+}
 
-	.footer-dropdown {
-		text-align: center;
-	}
+.message.right {
+  justify-content: flex-end;
+}
 
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
+.avatar-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
+.avatar {
+  margin-bottom: 10px;
+}
 
-	.footer-submenu a:hover {
-		background-color: #eee;
+.bubble {
+  max-width: 300px;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.left .bubble {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.right .bubble {
+  background-color: #dcf8c6;
+  color: #000;
+}
+
+
+
+    .avatar img {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		object-fit: cover;
 	}
 
     h1 {
-      padding-top: 80px;
+      padding-top: 20px;
       text-align: center;
     }
 
@@ -279,39 +286,40 @@
   <main>
   <h1>Q&A</h1>
   <p>Details about the Q&A...</p>
-  </main>
   
-<<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
+  <div class="message left">
+  <div class="avatar">
+    <img src="icon.png" alt="User 1" />
   </div>
-</footer>
--->
+  <div class="bubble">二人の仲良しの秘訣は？</div>
+</div>
 
+<div class="message right">
+  <div class="bubble">嫁の愛嬌と、旦那の器の広さ</div>
+  <div class="avatar">
+    <img src="kaito.jpg" alt="User 2" />
+  </div>
+</div>
 
+<div class="message left">
+  <div class="avatar">
+    <img src="icon.png" alt="User 1" />
+  </div>
+  <div class="bubble">二人でよく行く好きな場所！</div>
+</div>
+
+<div class="message right">
+  <div class="bubble">よく行く好きな場所だと、出会った場所でもあるスターバックスかな？まぁまぁの頻度で行ってる気がする
+					<br>あと、場所ではないけど、夜の散歩がお気に入り
+					</div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+  </div>
+</div>
+
+  
+  </main>
+ 
 
   <script>
   function toggleMenu() {
