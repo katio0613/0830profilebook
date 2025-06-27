@@ -154,6 +154,38 @@
 	  display: block;
 	  margin: 20px auto;
 	}
+	
+	@keyframes fadeIn {
+	  from { opacity: 0; transform: translateY(20px); }
+	  to { opacity: 1; transform: translateY(0); }
+	}
+
+	.fade-in {
+	  animation: fadeIn 1s ease forwards;
+	}
+	
+	#cursor {
+	  display: inline-block;
+	  animation: blink 1s step-start infinite;
+	  font-weight: bold;
+	}
+
+	@keyframes blink {
+	  50% {
+      opacity: 0;
+	  }
+	}
+	
+	.scroll-fade {
+	  opacity: 0;
+	  transform: translateY(20px);
+	  transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+
+	.scroll-fade.visible {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
 
     h1 {
       padding-top: 20px;
@@ -175,21 +207,6 @@
         font-size: 1em;
         padding: 12px;
       }
-
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
-
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
 	}	
 
 	 
@@ -207,6 +224,51 @@
 
 	
   </style>
+  
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const text = "新郎が自作しました！";
+  const typewriterElement = document.getElementById("typewriter-text");
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      typewriterElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100); // 文字の表示間隔
+    } else {
+      document.getElementById("cursor").style.display = "none"; // 終了後カーソル非表示
+      showNextElements();
+    }
+  }
+
+  function showNextElements() {
+    const img = document.getElementById("profile-img");
+    const desc1 = document.getElementById("description1");
+    const desc2 = document.getElementById("description2");
+
+    setTimeout(() => {
+      img.style.display = "block";
+      img.classList.add("fade-in");
+    }, 500);
+
+    setTimeout(() => {
+      desc1.style.display = "block";
+      desc1.classList.add("fade-in");
+    }, 1500);
+
+    setTimeout(() => {
+      desc2.style.display = "block";
+      desc2.classList.add("fade-in");
+    }, 2500);
+  }
+
+  // タイプライター開始を0.5秒遅らせる
+  setTimeout(typeWriter, 500);
+});
+
+</script>
+
 </head>
 
 <body>
@@ -241,22 +303,25 @@
 	
   <main>
   <h1>実はこのプロフィールブック．．．</h1>
-  <p style="font-size: 1.2em;">新郎が自作しました！</p>
-  <img src="kaito1.JPG" alt="わっち" class="full-width-img">
-	<p>紙ではなくWebという新しい形に挑戦し、デザインや機能にとことんこだわって制作しています。
+  <p id="typewriter" style="font-size: 1.2em;">
+	<span id="typewriter-text"></span><span id="cursor">|</span>
+  </p>
+  <img src="kaito1.JPG" alt="わっち" class="full-width-img scroll-fade" id="profile-img">
+  <p id="description1" class="scroll-fade">
+	紙ではなくWebという新しい形に挑戦し、デザインや機能にとことんこだわって制作しています。
 	<br>現在はまだあまり主流ではない形式ですが、ゲストがスマホで気軽に閲覧できるように、見やすさ・操作性・演出にも工夫を凝らしました。
 	（ペーパーレスで環境にも優しい）
 	<br>テンプレートが少ない中で、ゼロから構築したオリジナルのデザインです。
 	<br>せっかく頑張ったので、ちょっとした自慢でした。みんな褒めてね。
-	</p>
-	<p>あ、もし、このWebプロフィールブックがいいなって思ったかつ、今後結婚式を挙げる予定のあるゲストの方がいらっしゃったら、連絡してください
+  </p>
+  <p id="description2" class="scroll-fade">
+	あ、もし、このWebプロフィールブックがいいなって思ったかつ、今後結婚式を挙げる予定のあるゲストの方がいらっしゃったら、連絡してください
 	<br>作れちゃうかも！
-	</p>
+  </p>
+
+
   </main>
   
-
-
-
   <script>
   function toggleMenu() {
   const menu = document.getElementById("dropdown-menu");

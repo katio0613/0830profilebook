@@ -3,7 +3,7 @@ body {
 	  letter-spacing: 1px;
       margin: 0;
       padding: 0;
-      background-color: #458054;
+      background-color: #f8f4e6;
       position: relative;
       z-index: 1;
 }
@@ -35,7 +35,7 @@ body {
 .centered-heading {
   font-size: 2.5em;
   text-align: center;
-  color: #333;
+  color: #596E5F;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
@@ -80,6 +80,7 @@ body {
 h1 	{
     text-align: center;
     margin-top: 30px;
+	color: #596E5F;
 }
 
 h1.white	{
@@ -91,5 +92,6 @@ h1.white	{
 p 	{
     text-align: center;
     margin: 20px;
+	color: #596E5F;
 }
 	

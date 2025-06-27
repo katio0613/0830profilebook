@@ -145,56 +145,6 @@
       cursor: pointer;
     }
 
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-	  margin-top: 40px
-    }
-
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
-    }
-	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
-	}
-
-	.footer-dropdown {
-		text-align: center;
-	}
-
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
-
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
-
-	.footer-submenu a:hover {
-		background-color: #eee;
-	}
-
     h1 {
       padding-top: 80px;
       text-align: center;
@@ -248,21 +198,6 @@
         font-size: 1em;
         padding: 12px;
       }
-
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
-
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
     }
 	
 	html, body {
@@ -304,10 +239,6 @@
   margin: 20px auto;
 }
 
-
-
-
-
 	
   </style>
 </head>
@@ -341,12 +272,12 @@
 	<a href="share.html">写真シェア</a>
   </div>
   
-	<h1>二人の紹介</h1>
+	<h1>二人の思い出</h1>
 
 <div class="inline-chapter-links">
-  <a href="#chapter1">Chapter1&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">開斗の生い立ち&nbsp〉</span></a><br>
-  <a href="#chapter2">Chapter2&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">七海の生い立ち&nbsp〉</span></a><br>
-  <a href="#chapter3">Chapter3&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">2人の馴れ初め&nbsp〉</span></a>
+  <a href="#chapter1">Chapter1&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">開斗の思い出&nbsp〉</span></a><br>
+  <a href="#chapter2">Chapter2&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">七海の思い出&nbsp〉</span></a><br>
+  <a href="#chapter3">Chapter3&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">二人の思い出&nbsp〉</span></a>
 </div>
 
 
@@ -354,7 +285,7 @@
   <main>
 	<div class="chapter-header" id="chapter1">
 		<div class="chapter-number">Chapter 01</div>
-		<div class="chapter-title">開斗の生い立ち</div>
+		<div class="chapter-title">開斗の思い出</div>
 	</div>
 	<h2 class="left">幼少期</h2>
 	<p class="left">2000年3月23日生誕<br>
@@ -370,7 +301,7 @@
 
 	<div class="chapter-header" id="chapter2">
 		<div class="chapter-number">Chapter 02</div>
-		<div class="chapter-title">七海の生い立ち</div>
+		<div class="chapter-title">七海の思い出</div>
 	</div>
 	<h2 class="left">幼少期</h2>
 	<p class="left">1999年1月20日生誕<br>
@@ -387,7 +318,7 @@
 
 	<div class="chapter-header" id="chapter3">
 		<div class="chapter-number">Chapter 03</div>
-		<div class="chapter-title">二人の馴れ初め</div>
+		<div class="chapter-title">二人の思い出</div>
 	</div>
 	<h2 class="left">出会い</h2>
 	<img src="seaside.jpg" alt="説明文" class="full-width-img">
@@ -407,36 +338,6 @@
 
 	
   </main>
-
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
 
   <script>
     function toggleMenu() {
