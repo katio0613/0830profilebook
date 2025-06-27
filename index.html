@@ -11,7 +11,7 @@
 	  letter-spacing: 1px;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #f8f4e6;
       position: relative;
       z-index: 1;
     }
@@ -25,21 +25,6 @@
         font-size: 1em;
         padding: 12px;
       }
-
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
-
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
 	}
 
     .slideshow-section {
@@ -54,11 +39,22 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+		z-index: -1;
+		overflow: hidden;
+	}
+
+	.bg-image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
 		background-size: cover;
 		background-position: center;
-		opacity: 0.3;
-		z-index: -1;
-		transition: background-image 1s ease-in-out;	
+		transition: opacity 1s ease-in-out;
+		opacity: 0;
+	}
+
+	.bg-image.show {
+		opacity: 0.3; /* 透明度はお好みで調整 */
 	}
 
 	.fixed-bg-section {
@@ -67,7 +63,7 @@
 		background-repeat: no-repeat;
 		padding: 20px 20px;
 		color: #000;
-		background: #458054;
+		background: #f8f4e6;
 	}
 
     .content {
@@ -186,56 +182,6 @@
       border: none;
       cursor: pointer;
     }
-
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-	  margin-top: 40px
-    }
-
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
-    }
-	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
-	}
-
-	.footer-dropdown {
-		text-align: center;
-	}
-
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
-
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
-
-	.footer-submenu a:hover {
-		background-color: #eee;
-	}
 	
 	.centered-section {
 		display: flex;
@@ -244,23 +190,27 @@
 		justify-content: center;
 		text-align: center;
 		margin: 40px 0;
+		color: #5B8063;
 	}
 
 	.centered-heading {
 		font-size: 2em;
 		margin-bottom: 10px;
+		color: #5B8063;
 	}
 	
 	.right-heading {
 		text-align: right;
 		font-size: 2em;
 		margin-bottom: 0px;
+		color: #5B8063;
 	}
 	
 	.left-heading {
 		text-align: left;
 		font-size: 2em;
 		margin-bottom: 0px;
+		color: #5B8063;
 	}
 
     
@@ -271,6 +221,7 @@
       animation: typing 2.8s steps(40, end);
       font-family: 'Damion', cursive;
       font-size: 4em;
+	  color: #5B8063;
     }
 	
 /***************************************************
@@ -645,18 +596,22 @@
     p {
       text-align: center;
       margin: 20px;
+	  color: #5B8063;
     }
 	
 	.left{
 		text-align: left;
+		color: #5B8063;
 	}
 	
 	.right{
 		text-align: right;
+		color: #5B8063;
 	}
 	
 	.large-text{
 		font-size: 1.3em;
+		color: #5B8063;
 	}
 	
 	.top-margin{
@@ -665,12 +620,14 @@
 	
 	.underline-text {
 		text-decoration: underline;
+		color: #5B8063;
 	}
 	
 	.arrow-right {
 		display: block;
 		text-align: right;
 		font-size: 1.2em; /* 必要に応じて調整 */
+		color: #5B8063;
 	}
 
 
@@ -716,22 +673,34 @@
   }
 
   const images = ['back1.JPG', 'back2.JPG', 'back3.JPG'];
-  let index = 0;
+	let index = 0;
+	let current = 0;
 
   function changeBackground() {
-    const bg = document.querySelector('.background-slideshow');
-    if (bg) {
-      bg.style.backgroundImage = `url(${images[index]})`;
-      index = (index + 1) % images.length;
-    }
+	const bg1 = document.querySelector('.bg1');
+	const bg2 = document.querySelector('.bg2');
+
+	const nextIndex = (index + 1) % images.length;
+	const nextImage = images[nextIndex];
+
+	const currentBg = current === 0 ? bg1 : bg2;
+	const nextBg = current === 0 ? bg2 : bg1;
+
+	nextBg.style.backgroundImage = `url(${nextImage})`;
+	nextBg.classList.add('show');
+	currentBg.classList.remove('show');
+
+	current = current === 0 ? 1 : 0;
+	index = nextIndex;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (document.body.classList.contains('slideshow')) {
-      changeBackground();
-      setInterval(changeBackground, 5000);
-    }
+	const bg1 = document.querySelector('.bg1');
+	bg1.style.backgroundImage = `url(${images[0]})`;
+	bg1.classList.add('show');
+	setInterval(changeBackground, 5000);
   });
+
   
   function toggleFooterSubMenu(event, submenuId) {
 	event.preventDefault();
@@ -750,6 +719,7 @@
     }
     h1, h2, h3, h4, h5, h6 {
         font-size: 1.2em;
+		color: #5B8063;
     }
     img {
         max-width: 100%;
@@ -806,7 +776,10 @@
   
 <!-- セクション1：スライドショー -->
 	<section class="slideshow-section">
-		<div class="background-slideshow"></div>
+		<div class="background-slideshow">
+  <div class="bg-image bg1 show"></div>
+  <div class="bg-image bg2"></div>
+</div>
 		<div class="content">
 		<!--?xml version="1.0" standalone="no"?-->
 
@@ -989,36 +962,6 @@ c29 0 70 -5 90 -10z" class="svg-elem-11"></path>
     </div>
   </section>
 </a>
-
-<!--フッター設定
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
 
 </body>
 
