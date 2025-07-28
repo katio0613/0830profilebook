@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photos</title>
+  <title>Coffee</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
   <style>
@@ -37,7 +37,6 @@
 		max-width: 100%;
 		height: auto;
 	}
-
 
     .menu-icon {
       position: fixed;
@@ -205,7 +204,7 @@
     }
 
     @media (max-width: 600px) {
-      .full-width-img {
+	  .full-width-img {
 		padding: 0 16px; /* スマホでは左右に16pxの余白 */
 	  }
 	  
@@ -228,7 +227,9 @@
 	  .footer-submenu a {
 		font-size: 0.8em;
 	  }
-    }
+	}	
+
+	 
 	
 	html, body {
 		height: 100%;
@@ -240,6 +241,7 @@
 	main {
 		flex: 1;
 	}
+
 	
   </style>
 </head>
@@ -272,44 +274,17 @@
 	<a href="photos.html">前撮り写真</a>
 	<a href="share.html">写真シェア</a>
   </div>
-  
+
+	
   <main>
-  <h1>前撮り写真</h1>
-  <p>Details about the photos...</p>
+  <h1>ドリップパックについて</h1>
+  <p>Details about the drippack...</p>
   </main>
+  
 
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
 
   <script>
-    function toggleMenu() {
+  function toggleMenu() {
 	const menu = document.getElementById("dropdown-menu");
 	const overlay = document.getElementById("menu-overlay");
 	const submenu = document.getElementById("submenu");
@@ -352,5 +327,6 @@
 	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
   }
   </script>
+
 </body>
 </html>

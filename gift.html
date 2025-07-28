@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>プチギフトの紹介</title>
+  <title>gift</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
   <style>
@@ -142,56 +142,63 @@
       border: none;
       cursor: pointer;
     }
-
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-	  margin-top: 40px
-    }
-
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
-    }
 	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
-	}
+	.link-box-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px auto;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
 
-	.footer-dropdown {
-		text-align: center;
-	}
+.link-box {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  background-color: #6c9bcf;
+  font-size: 0.8em;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  min-width: 140px;
+  flex: 1 1 140px; /* 幅が狭い画面でも横並びになるように */
+  max-width: 200px;
+}
 
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
+.hano-box {
+  background-color: #FADADD;
+  color: black;
+}
 
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
+.coffee-box {
+  background-color: #5C4033;
+  color: white;
+}
 
-	.footer-submenu a:hover {
-		background-color: #eee;
-	}
+.link-box:hover {
+  opacity: 0.85;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#link-boxes.fade-in {
+  animation: fadeInUp 1s ease forwards;
+}
+
 
     h1 {
       padding-top: 80px;
@@ -199,34 +206,19 @@
     }
 
     p {
-      padding: 0 20px;
+      padding: 0px;
       text-align: center;
     }
 
     @media (max-width: 600px) {
 	  .full-width-img {
-		padding: 0 16px; /* スマホでは左右に16pxの余白 */
+		padding: 0 10px; /* スマホでは左右に16pxの余白 */
 	  }
 	  
       .dropdown-menu a {
         font-size: 1em;
         padding: 12px;
       }
-
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
-
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
 	}	
 
 	 
@@ -277,41 +269,33 @@
 
 	
   <main>
-  <h1>プチギフトの紹介</h1>
-  <p>Details about the gift...</p>
-  </main>
+  <h1>プチギフトについて</h1>
+  <p id="animated-text">
+  今回ご用意させていただいたプチギフトは、私たち夫婦のちょっとした夢が詰まった、特別なものです。<br><br>
   
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
+  実はこのドリップパック...<br><br>
 
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
+  <span style="font-size: 1.5em;">完全オリジナル!!</span><br><br>
+  
+  私たちの出会いのきっかけでもあり、今では共通の趣味となった「コーヒー」<br><br>
 
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
+  そんな大好きなコーヒーを、今日という特別な日に、大切な皆さまにお届けしたい<br>
+  そんな想いから、このギフトを作ることにしました。<br><br>
 
+  そしてこの夢の実現には、<span style="font-size: 1.3em;">はのさん</span>のご協力が欠かせませんでした<br>
+  私たちの想いを丁寧に汲み取ってくださり、私たちらしい一杯に仕上げてくださいました<br><br>
 
+  ぜひ、おうちでゆっくりと、私たちの感謝の気持ちを感じながら味わっていただけたら嬉しいです
+</p>
+
+  
+<div id="link-boxes" class="link-box-container" style="opacity: 0;">
+  <a href="hano.html" class="link-box hano-box">はのさんの紹介</a>
+  <a href="coffee.html" class="link-box coffee-box">コーヒーについて</a>
+</div>
+
+  
+  </main>
 
   <script>
   function toggleMenu() {
@@ -351,12 +335,32 @@
   const submenu = document.getElementById(submenuId);
   submenu.classList.toggle("show");
   }
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    const p = document.getElementById('animated-text');
+    const rawText = p.innerHTML;
+    const blocks = rawText.split(/<br>\s*<br>/); // 意味のまとまりで分割
+    p.innerHTML = '';
 
-  function toggleFooterSubMenu(event, submenuId) {
-	event.preventDefault();
-	const submenu = document.getElementById(submenuId);
-	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  }
+    let index = 0;
+
+    function showNextBlock() {
+      if (index < blocks.length) {
+        const block = document.createElement('div');
+        block.innerHTML = blocks[index];
+        block.classList.add('fade-in');
+        p.appendChild(block);
+        index++;
+        setTimeout(showNextBlock, 1500); // 表示間隔
+      } else {
+        // 全部表示し終わったらリンクボックスを表示
+        const linkBoxes = document.getElementById('link-boxes');
+        linkBoxes.classList.add('fade-in');
+      }
+    }
+
+    showNextBlock();
+  });
   </script>
 
 </body>
