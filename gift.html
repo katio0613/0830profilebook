@@ -195,9 +195,20 @@
   }
 }
 
-#link-boxes.fade-in {
-  animation: fadeInUp 1s ease forwards;
+#link-boxes {
+  opacity: 0;
+  pointer-events: none; /* ← クリックを無効化 */
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
 }
+
+#link-boxes.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 1s ease forwards;
+  pointer-events: auto; /* ← 表示されたらクリック可能に */
+}
+
 
 
     h1 {
@@ -345,19 +356,18 @@
     let index = 0;
 
     function showNextBlock() {
-      if (index < blocks.length) {
-        const block = document.createElement('div');
-        block.innerHTML = blocks[index];
-        block.classList.add('fade-in');
-        p.appendChild(block);
-        index++;
-        setTimeout(showNextBlock, 1500); // 表示間隔
-      } else {
-        // 全部表示し終わったらリンクボックスを表示
-        const linkBoxes = document.getElementById('link-boxes');
-        linkBoxes.classList.add('fade-in');
-      }
-    }
+  if (index < blocks.length) {
+    const block = document.createElement('div');
+    block.innerHTML = blocks[index];
+    block.classList.add('fade-in');
+    p.appendChild(block);
+    index++;
+    setTimeout(showNextBlock, 1500);
+  } else {
+    const linkBoxes = document.getElementById('link-boxes');
+    linkBoxes.classList.add('fade-in');
+  }
+}
 
     showNextBlock();
   });
