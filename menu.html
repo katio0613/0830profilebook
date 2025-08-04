@@ -143,90 +143,31 @@
       cursor: pointer;
     }
 
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
+    h1 {
+      padding-top: 30px;
       text-align: center;
-      width: 100%;
-	  margin-top: 40px
-    }
-
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
     }
 	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
-	}
-
-	.footer-dropdown {
-		text-align: center;
-	}
-
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
-
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
-
-	.footer-submenu a:hover {
-		background-color: #eee;
-	}
-
-    h1 {
-      padding-top: 80px;
+	h2 {
+      padding-top: 0px;
+	  padding-bottom: 0px;
       text-align: center;
     }
 
     p {
-      padding: 0 20px;
+      padding: 0;
       text-align: center;
     }
 
     @media (max-width: 600px) {
 	  .full-width-img {
-		padding: 0 16px; /* スマホでは左右に16pxの余白 */
+		padding: 0 12px; /* スマホでは左右に16pxの余白 */
 	  }
 	  
       .dropdown-menu a {
         font-size: 1em;
         padding: 12px;
       }
-
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
-
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
 	}	
 
 	 
@@ -277,40 +218,89 @@
 
 	
   <main>
-  <h1>メニュー</h1>
-  <p>Details about the Food&Drink...</p>
+  <h1>Food</h1>
+  
+  <h2>アミューズ</h2>
+	<p>神戸牛ブレザオラと果実</p>
+	
+  <h2>前菜</h2>
+	<p>オマール海老のパレット 
+	<br>軽やかな三種のソース
+	<br>ハーブの爽やかさと黄色果実 
+	<br>バスク唐辛子とピペラード</p>
+	
+  <h2>スープ</h2>
+	<p>クラシックハウスのコンソメスープ</p>
+	
+  <h2>魚料理</h2>
+	<p>甘鯛の鱗焼きと帆立貝柱 
+	<br>ソースマルセイユ</p>
+	
+  <h2>お口直し</h2>
+	<p>ライムのシャーベット</p>
+	
+  <h2>肉料理</h2>
+	<p>国産牛フィレ肉のミルフィーユ仕立て 
+	<br>トリュフ香るペリグーソース</p>
+	
+  <h2>デザート</h2>
+	<p>季節のデザート
+	<br>お楽しみ</p>
+	
+  <h1>Drink</h1>
+  
+  <h2>Beer</h2>
+	<p>キリン ハートランド
+	<br>ノンアルコールビール</p>
+	
+  <h2>Wine</h2>
+	<p>赤ワイン 
+	<br>白ワイン
+	<br><span style="font-size: 0.5em;">※銘柄はスタッフにお聞きください</span>
+	</p>
+	
+  <h2>焼酎</h2>
+	<p>[芋]青ヶ島 青酎
+	<br>[麦]兼八</p>
+	
+  <h2>日本酒</h2>
+	<p>久保田千寿</p>
+	
+  <h2>Whisky</h2>
+	<p>碧 Ao</p>
+	
+  <h2>CockTail</h2>
+	<p>カシス
+	<br>ジン
+	<br>ウォッカ
+	<br><span style="font-size: 0.7em;">※ソーダ/トニックウォーター/ロック
+	<br>/各種ソフトドリンク</span>
+	</p>
+	
+  <h2>Non-Alcoholic Cocktail</h2> 
+	<p>ノンアルコールジントニック
+	<br>アールグレイレモネード
+	<br>すだちトニック</p>
+	
+  <h2>Soft Drink</h2>
+	<p>烏龍茶
+	<br>オレンジ
+	<br>アップル
+	<br>ジンジャーエール
+	<br>グレープフルーツ
+	<br>コーラ</p>
+  
+  <h2>Leaf Wine
+  <br><span style="font-size: 0.7em;">～紅茶のような味わい～</span></h2>
+	<p>東方美人
+	<br>紅韻</p>
+
+  <h2>After Drink</h2>
+	<p>コーヒー
+	<br>紅茶</p>
+
   </main>
   
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
-
 
 
   <script>
@@ -351,11 +341,6 @@
   submenu.classList.toggle("show");
   }
 
-  function toggleFooterSubMenu(event, submenuId) {
-	event.preventDefault();
-	const submenu = document.getElementById(submenuId);
-	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  }
   </script>
 
 </body>
