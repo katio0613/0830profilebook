@@ -143,56 +143,42 @@
       border: none;
       cursor: pointer;
     }
+	
+	
+	.gallery {
+      column-count: 3;
+      column-gap: 1em;
+      padding: 1em;
+    }
 
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
+    .gallery img {
       width: 100%;
-	  margin-top: 40px
-    }
-
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
+      margin-bottom: 1em;
+      border-radius: 8px;
+      display: block;
+      break-inside: avoid;
     }
 	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
-	}
+	
+/* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
 
-	.footer-dropdown {
-		text-align: center;
-	}
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
 
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
 
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
-
-	.footer-submenu a:hover {
-		background-color: #eee;
-	}
 
     h1 {
       padding-top: 80px;
@@ -206,29 +192,20 @@
 
     @media (max-width: 600px) {
       .full-width-img {
-		padding: 0 16px; /* スマホでは左右に16pxの余白 */
+		padding: 0 2px; /* スマホでは左右に16pxの余白 */
 	  }
+	  
+	  
+	gallery {
+        column-count: 2;
+      }
+
 	  
       .dropdown-menu a {
         font-size: 1em;
         padding: 12px;
       }
 
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
-
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
-    }
 	
 	html, body {
 		height: 100%;
@@ -275,38 +252,24 @@
   
   <main>
   <h1>前撮り写真</h1>
-  <p>Details about the photos...</p>
+  <p>クリックすると拡大するよ！</p>
+  
+  <div class="gallery">
+	<img src="IMG_3811.jpg" alt="photo1">
+	<img src="IMG_5823.jpeg" alt="photo2">
+	<img src="DSC06600.jpeg" alt="photo3">
+	<img src="mine.JPG" alt="photo30">
+  </div>
+  
+  
+  <div class="lightbox" id="lightbox">
+	<img src="" alt="拡大画像" id="lightbox-img">
+  </div>
+
+
+  
   </main>
 
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
-
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
 
   <script>
     function toggleMenu() {
@@ -345,12 +308,22 @@
   const submenu = document.getElementById(submenuId);
   submenu.classList.toggle("show");
   }
+  
+  
+const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
 
-  function toggleFooterSubMenu(event, submenuId) {
-	event.preventDefault();
-	const submenu = document.getElementById(submenuId);
-	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  }
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
   </script>
 </body>
 </html>
