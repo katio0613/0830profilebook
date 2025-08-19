@@ -186,13 +186,18 @@
 	.left {
 		text-align:left;
 		margin-left: 0;
-		padding-left: 0;
 		}
 
     @media (max-width: 600px) {
 	  .full-width-img {
-		padding: 16 px; /* スマホでは左右に16pxの余白 */
-	  }
+		padding: 0 10px; /* スマホでは左右に16pxの余白 */
+	  } 
+	  
+	p, h2, h1 {
+      padding-left: 10px;
+      padding-right: 10px;
+	}
+
 	  
       .dropdown-menu a {
         font-size: 1em;

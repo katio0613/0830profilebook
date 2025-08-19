@@ -142,9 +142,23 @@
       border: none;
       cursor: pointer;
     }
+	
+	.section-box {
+	  background-color: #596E5F; /* 濃いグレーなど、白文字が映える色 */
+	  color: white;
+	  padding: 10px 0px;
+	  margin: 0px 40px;
+	  border-radius: 10px;
+	}
+
+	.section-box h2,
+	.section-box p {
+	  color: white;
+	}
 
     h1 {
       padding-top: 30px;
+	  padding-bottom: 0px;
       text-align: center;
     }
 	
@@ -218,7 +232,10 @@
 
 	
   <main>
+  
   <h1>Food</h1>
+  
+  <div class="section-box">
   
   <h2>アミューズ</h2>
 	<p>神戸牛ブレザオラと果実</p>
@@ -246,8 +263,12 @@
   <h2>デザート</h2>
 	<p>季節のデザート
 	<br>お楽しみ</p>
+  </div>
 	
+  
   <h1>Drink</h1>
+  
+  <div class="section-box">
   
   <h2>Beer</h2>
 	<p>キリン ハートランド
@@ -298,6 +319,8 @@
   <h2>After Drink</h2>
 	<p>コーヒー
 	<br>紅茶</p>
+	
+   </div>
 
   </main>
   
