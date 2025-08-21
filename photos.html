@@ -147,13 +147,13 @@
 	
 	.gallery {
       column-count: 3;
-      column-gap: 1em;
-      padding: 1em;
+      column-gap: 0.4em;
+      padding: 0px 1em;
     }
 
     .gallery img {
       width: 100%;
-      margin-bottom: 1em;
+      margin-bottom: 0.4em;
       border-radius: 8px;
       display: block;
       break-inside: avoid;
@@ -181,9 +181,15 @@
 
 
     h1 {
-      padding-top: 80px;
+      padding-top: 30px;
       text-align: center;
     }
+	
+	h2 	{
+      text-align: left;
+	  padding-bottom: 0px;
+	  padding-left: 10px;
+	}
 
     p {
       padding: 0 20px;
@@ -234,7 +240,7 @@
 	<a href="index.html">Home</a>
 	<a href="#" onclick="toggleSubMenu(event, 'submenu-about')">私たちについて</a>
 	<div id="submenu-about" class="submenu">
-		<a href="memory.html">二人の紹介</a>
+		<a href="memory.html">二人の思い出</a>
 		<a href="favorite.html">好きなもの</a>
 		<a href="QA.html">Q&A</a>
 	</div>
@@ -252,7 +258,13 @@
   
   <main>
   <h1>前撮り写真</h1>
-  <p>クリックすると拡大するよ！</p>
+  <p>晴れの日も、雨の日も。
+  <br>どの日も特別な一日でした。
+  <br>そんな私たちのひとときを
+  <br>よかったら覗いてみてください。
+  <br><span style="font-size:0.8em;">※写真をクリックすると拡大するよ！</span></p>
+  
+  <h2>▶城ヶ島</h2>
   
   <div class="gallery">
 	<img src="IMG_3811.jpg" alt="photo1">

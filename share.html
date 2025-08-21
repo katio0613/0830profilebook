@@ -143,54 +143,48 @@
       cursor: pointer;
     }
 
-    .footer-menu {
-      background-color: white;
-      border-top: 1px solid #ccc;
-      padding: 10px;
+    .center-wrapper {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  margin-top: 10px; 
+	}
+
+	
+    .share-box {
+      width: 300px;
+      height: 80px;
+      background-color: #000000;
+      border: 2px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
       text-align: center;
-      width: 100%;
-	  margin-top: 40px
+      transition: background-color 0.3s;
     }
 
-    .footer-menu a {
-      display: inline-block;
-      margin: 5px 10px;
+    .share-box:hover {
+      background-color: #A9A9A9;
+    }
+
+    a {
       text-decoration: none;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    .footer-menu a:hover {
-      background-color: #ddd;
+      color: white;
     }
 	
-	.footer-dropdown-container {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-		margin-top: 10px;
-	}
-
-	.footer-dropdown {
-		text-align: center;
-	}
-
-	.footer-submenu {
-		display: none;
-		margin-top: 5px;
-	}
-
-	.footer-submenu a {
-		display: block;
-		font-size: 0.85em;
-		color: #333;
-		text-decoration: none;
-		margin: 3px 0;
-	}
-
-	.footer-submenu a:hover {
-		background-color: #eee;
+	.container {
+	  display: flex;
+	  border: 2px solid #333;
+	  padding: 10px;
+	  width: 600px;
+	  margin: 20px auto;
+	  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+	  border-radius: 15px; /* ← 角を丸くする */
+	  background-color: #ffffff;
+	  gap: 0; 
 	}
 
     h1 {
@@ -200,6 +194,7 @@
 
     p {
       padding: 0 20px;
+	  font-size: 14px;
       text-align: center;
     }
 
@@ -212,21 +207,24 @@
         font-size: 1em;
         padding: 12px;
       }
+	  
+	  .container {
+    display: flex;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+	gap: 0;
+  }
 
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
+  .image-box {
+    margin-bottom: 10px;
+	margin-right: 0;
+  }
 
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
+  .text-box {
+    font-size: 12px;
+	padding: 0 2px;
+  }
 	}	
 
 	 
@@ -259,7 +257,7 @@
 	<a href="index.html">Home</a>
 	<a href="#" onclick="toggleSubMenu(event, 'submenu-about')">私たちについて</a>
 	<div id="submenu-about" class="submenu">
-		<a href="memory.html">二人の紹介</a>
+		<a href="memory.html">二人の思い出</a>
 		<a href="favorite.html">好きなもの</a>
 		<a href="QA.html">Q&A</a>
 	</div>
@@ -277,39 +275,32 @@
 
 	
   <main>
-  <h1>写真シェア</h1>
-  <p>Details about the share link...</p>
+  <h1>写真シェアのご案内</h1>
+  <p>本日はご参列いただき、
+  <br>誠にありがとうございます。
+  <br>皆様と過ごした大切なひとときを、
+  <br>写真でも振り返りたいと思い、
+  <br>シェアページをご用意しております。
+  <br>ぜひ、お取りいただいたお写真を
+  <br>アップロードしていただき
+  <br>思い出を共有していただけたら嬉しいです。
+  </p>
+  
+  <p><span style="font-size:0.8em;">※閲覧・ダウンロードも自由ですので、
+  <br>ぜひご活用ください！</span></p>
+  
+  
+  <div class="center-wrapper">
+  <a href="https://jpn01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.weddingshare.me%2Fweddings%2Ffs66ti9rtgi8yvoa%2F97f9yKzNTi3M0ePeiOLUE6CbS7sf5MON%3FopenExternalBrowser%3D1&data=05%7C02%7Ckaito.takeda.ub%40renesas.com%7C6b63a303eaab4065042408dde06b6466%7C53d82571da1947e49cb4625a166a4a2a%7C0%7C0%7C638913474060577319%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=azENER%2FawTvoZsMkr7KUgYy5m2mCmibA5%2BglHhAdjXY%3D&reserved=0" target="_blank">
+    <div class="share-box">
+      写真シェアはこちらから
+    </div>
+  </a>
+  </div>
+  
   </main>
   
-<!--
-<footer class="footer-menu">
-  <a href="index.html">Home</a>
-  <a href="table.html">Table</a>
-  <a href="menu.html">Food&Drink</a>
-  <a href="photos.html">前撮り写真</a>
-  <a href="share.html">写真シェア</a>
 
-  <div class="footer-dropdown-container">
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-about')">About us ▼</a>
-      <div id="footer-submenu-about" class="footer-submenu">
-        <a href="memory.html">二人の紹介</a>
-        <a href="favorite.html">My favorite</a>
-        <a href="QA.html">Q&A</a>
-      </div>
-    </div>
-
-    <div class="footer-dropdown">
-      <a href="#" onclick="toggleFooterSubMenu(event, 'footer-submenu-concept')">私たちのこだわり ▼</a>
-      <div id="footer-submenu-concept" class="footer-submenu">
-        <a href="playlist.html">Playlist</a>
-        <a href="gift.html">プチギフトの紹介</a>
-        <a href="book.html">プロフィールブックについて</a>
-      </div>
-    </div>
-  </div>
-</footer>
--->
 
 
 
@@ -352,11 +343,6 @@
   submenu.classList.toggle("show");
   }
 
-  function toggleFooterSubMenu(event, submenuId) {
-	event.preventDefault();
-	const submenu = document.getElementById(submenuId);
-	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  }
   </script>
 
 </body>

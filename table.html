@@ -200,26 +200,26 @@
     align-items: center;
     flex-wrap: nowrap;
     padding: 4px 0;
+	gap: 0px; 
   }
 
   .name {
-    width: 30%;
+    width: 40%;
     font-size: 13px; /* スマホ向けに少し小さめ */
     white-space: nowrap;
     overflow: hidden;
-    margin-right: 0;
-	margin-left: 0;
     text-overflow: ellipsis;
-    text-align: left;
+	text-align: center;
   }
 
   .comment {
-    width: 70%;
+    width: 60%;
     font-size: 13px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+	text-align: center;
   }
 }
 	
@@ -354,17 +354,13 @@
     <!-- ゲスト一覧 -->
     <div id="guests">
 		<div id="guests-A" class="guest-section">
-		 <h2>ハム&マリボーチーズ フィローネ</h2>
+		 <h2>フィローネ ハム&マリボーチーズ</h2>
 		 <ul>
-		  <li><span class="name">北澤 正好</span><span class="comment">またおうち遊びに行きます！</span></li>
-		  <li><span class="name">北澤 瑞樹</span><span class="comment">今後もたまにぱずさんお借りしますね</span></li>
-		  <li><span class="name">北澤 晴</span><span class="comment">今日は楽しんでね！！</span></li>
-		  <li><span class="name">渡邉 良祐</span><span class="comment">そろそろValoを起動しろ</span></li>
-		  <li><span class="name">満石 海</span><span class="comment">また、麻雀でもしよや</span></li>
-		  <li><span class="name">水上 直輝</span><span class="comment">年一のご飯は確定でお願いします</span></li>
-		  <li><span class="name">野口 歩睦</span><span class="comment">そろそろ麻雀覚えましたか？</span></li>
-		  <li><span class="name">保坂 優斗</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">高橋 建登</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">北澤 正好</span><span class="comment">渡邉 良祐</span></li>
+		  <li><span class="name">北澤 晴</span><span class="comment">水上 直輝</span></li>
+		  <li><span class="name">北澤 瑞樹</span><span class="comment">野口 歩睦</span></li>
+		  <li><span class="name">満石 海</span><span class="comment">高橋 建登</span></li>
+		  <li><span class="name">保坂 優斗</span></li>
 		 </ul>
 		</div>
 
@@ -372,122 +368,89 @@
 		<div id="guests-B" class="guest-section">
 		 <h2>ニューヨークチーズケーキ</h2>
 		 <ul>
-		  <li><span class="name">鈴木 崇広</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">西村 駿之介</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">宮崎 将一郎</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">荻原 廉</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">吉田 昂平</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">本庄 莉子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">内田 こなつ</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">西村 駿之介</span><span class="comment">鈴木 崇広</span></li>
+		  <li><span class="name">宮崎 将一郎</span><span class="comment">荻原 廉</span></li>
+		  <li><span class="name">吉田 昂平</span><span class="comment">本庄 莉子</span></li>
+		  <li><span class="name"></span><span class="comment">内田 こなつ</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-C" class="guest-section">
 		 <h2>ベーグルサンド</h2>
 		 <ul>
-		  <li><span class="name">堀 邦子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">松田 小夏</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">中村 美菜</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">秋山 貴子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">藤本 恵伶奈</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">萩尾 友音</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">木村 愛純</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">加藤 里菜</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">伊藤 かれん</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">水野 萌季</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">堀 邦子</span><span class="comment">松田 小夏</span></li>
+		  <li><span class="name">木村 愛純</span><span class="comment">中村 美菜</span></li>
+		  <li><span class="name">加藤 里菜</span><span class="comment">秋山 貴子</span></li>
+		  <li><span class="name">伊藤 かれん</span><span class="comment">藤本 恵伶奈</span></li>
+		  <li><span class="name">水野 萌季</span><span class="comment">萩尾 友音</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-D" class="guest-section">
 		 <h2>シュガードーナツ</h2>
 		 <ul>
-		  <li><span class="name">羽兼 あずさ</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">米野 綾佳</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">齋藤 美穂子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">大西 隼平</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">坂本 弘樹</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">深澤 英将</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">深澤 玲菜</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">羽兼 あずさ</span></li>
+		  <li><span class="name">米野 綾佳</span><span class="comment">齋藤 美穂子</span></li>
+		  <li><span class="name">坂本 弘樹</span><span class="comment">大西 隼平</span></li>
+		  <li><span class="name">深澤 玲菜</span><span class="comment">深澤 英将</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-E" class="guest-section">
 		 <h2>ソーセージパイ</h2>
 		 <ul>
-		  <li><span class="name">高麗 暁光</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">中澤 綾太</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">加藤 正耀</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">伊東 雄大</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">赤瀬 慶祐</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">近藤 優聖</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">櫻井 優一</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">秋吉 広翔</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">幸田 崇寛</span><span class="comment">高麗 暁光</span></li>
+		  <li><span class="name">近藤 優聖</span><span class="comment">中澤 綾太</span></li>
+		  <li><span class="name">櫻井 優一</span><span class="comment">加藤 正耀</span></li>
+		  <li><span class="name">秋吉 広翔</span><span class="comment">伊東 雄大</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-F" class="guest-section">
 		 <h2>ワッフル</h2>
 		 <ul>
-		  <li><span class="name">宮越 いずみ</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">松崎 亜沙美</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">西舘 桃子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">原口 瑶望</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">渋谷 真美</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">寺嶋 茅</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">山口 良</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">黒澤 結</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">竹山 憧</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">山本 可鈴</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">宮越 いずみ</span><span class="comment">松崎 亜沙美</span></li>
+		  <li><span class="name">竹山 憧</span><span class="comment">西舘 桃子</span></li>
+		  <li><span class="name">山本 可鈴</span><span class="comment">原口 瑶望</span></li>
+		  <li><span class="name">黒澤 結</span><span class="comment">渋谷 真美</span></li>
+		  <li><span class="name">山口 良</span><span class="comment">寺嶋 茅</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-G" class="guest-section">
 		 <h2>シナモンロール</h2>
 		 <ul>
-		  <li><span class="name">武田 達也</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">武田 美佳</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">比留間 良子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">塚本 晃子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">塚本 七瀬</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">井坂 貴之</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">武田 達也</span><span class="comment">井坂 貴之</span></li>
+		  <li><span class="name">比留間 良子</span><span class="comment">塚本 七瀬</span></li>
+		  <li><span class="name">武田 美佳</span><span class="comment">塚本 晃子</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-H" class="guest-section">
 		 <h2>ほうれん草のキッシュ</h2>
 		 <ul>
-		  <li><span class="name">比留間 太白</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">吉崎 理華</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">田中 純二</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">武田 雄太</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">武田 実穂</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">吉崎 理華</span><span class="comment">比留間 太白</span></li>
+		  <li><span class="name">田中 純二</span><span class="comment">武田 雄太</span></li>
+		  <li><span class="name">武田 実穂</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-I" class="guest-section">
 		 <h2>チョコスコーン</h2>
 		 <ul>
-		  <li><span class="name">中村 彰吾</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">中谷 昌美</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">中嶋 美澄</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">前川 愛</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">立石 周𤋮</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">鶴谷 怜子</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">宇田川 尚輝</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">櫻井 一生</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">中嶋 美澄</span><span class="comment">前川 愛</span></li>
+		  <li><span class="name">宇田川 尚輝</span><span class="comment">中村 彰吾</span></li>
+		  <li><span class="name">櫻井 一生</span><span class="comment">鶴谷 怜子</span></li>
+		  <li><span class="name">丸山 知南</span><span class="comment">小園 茉初</span></li>
 		 </ul>
 		</div>
         
 		<div id="guests-J" class="guest-section">
 		 <h2>ホワイトチョコクッキー</h2>
 		 <ul>
-		  <li><span class="name">小園 茉初</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">丸山 知南</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">長尾 椿</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">金山 ちひろ</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">竹之内 サラ</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">森 遥香</span><span class="comment">よろしくお願いします</span></li>
-		  <li><span class="name">生田 暖</span><span class="comment">よろしくお願いします</span></li>
+		  <li><span class="name">金山 ちひろ</span><span class="comment">長尾 椿</span></li>
+		  <li><span class="name">岸川 翼</span><span class="comment">森 遥香</span></li>
+		  <li><span class="name">生田 暖</span><span class="comment">竹之内 サラ</span></li>
 		 </ul>
 		</div>
     </div>
