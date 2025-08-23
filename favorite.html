@@ -233,6 +233,88 @@
 	opacity: 1;
 	pointer-events: auto;
   }
+  
+  .icon-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+      gap: 15px;
+    }
+
+  
+  .image-display {
+	display: none;
+	position: relative; /* ← これが重要！ */
+	width: 100%;
+	height: 300px; /* 高さを指定しておくと位置調整しやすい */
+	margin-top: 30px;
+	padding: 20px;
+	border-radius: 10px;
+	z-index: 200;
+  }
+
+  #leftImage {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 30%;
+	height: auto;
+	border: 2px solid #aaa;
+	border-radius: 10px;
+  }
+
+  #rightImage {
+	position: absolute;
+	top: -50px;
+	right: 0;
+	width: 30%;
+	height: auto;
+	border: 2px solid #aaa;
+	border-radius: 10px;
+  }
+  
+  #leftImage2 {
+	position: absolute;
+	bottom: -30px;
+	right: 0;
+	width: 30%;
+	height: auto;
+	border: 2px solid #aaa;
+	border-radius: 10px;
+  }
+
+  #rightImage2 {
+	position: absolute;
+	top: -30px;
+	left: 0;
+	width: 30%;
+	height: auto;
+	border: 2px solid #aaa;
+	border-radius: 10px;
+  }
+
+    .image-display img {
+      border: 2px solid #aaa;
+      border-radius: 10px;
+    }
+	
+
+.icon-number {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 1s ease-in-out; /* ← スムーズに動かすために追加 */
+  position: relative; /* transformが効くように */
+}
+
+
 
   @keyframes fadeInScale {
 	0% {
@@ -255,21 +337,6 @@
         font-size: 1em;
         padding: 12px;
       }
-
-	  .footer-dropdown-container {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-	  }
-
-	  .footer-dropdown {
-		width: 100%;
-		max-width: 300px;
-	  }
-
-	  .footer-submenu a {
-		font-size: 0.8em;
-	  }
 	}	
 	
 	html, body {
@@ -326,67 +393,89 @@
 
 	
   <main>
-  <h1>私の<span style="color:red; font-size: 1.5em;">好き</span>なもの</h1>
+  <h1><span style="font-size: 1.5em;">My Favorite</span></h1>
   <!-- 1つ目のセット -->
   <h1><span class="name">Kaito</span></h1>
   <div class="circle-container container1">
    <div class="circle-background" style="background-image: url('kaito.jpg');"></div>
-	<div class="overlay"></div>
-    <div class="icon" style="top: 30px; left: 60px;">
-      <img src="coffee.png" alt="A1">
+   <div class="overlay"></div>
+   <div class="icon-container">
+    <div class="icon" style="top: 30px; left: 60px;" onclick="showImages(1)">
+		<span class="icon-number">コ</span>
 		<div class="dropdown">
 		 <h2>コーヒー</h2>
-            カフェで飲むのも家で入れるのもどっちも好き！
+		  <span style="font-size: 0.8em;">
+            カフェで飲むのも家で入れるのも
+			<br>どっちも好き！
             <br>好きすぎてエスプレッソマシンを買ってしまうほど．．．
 			<br>（一人暮らしの時はインテリア）
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 130px; left: 10px;">
-      <img src="soccer.png" alt="B1">
+    <div class="icon" style="top: 130px; left: 10px;" onclick="showImages(2)">
+      <span class="icon-number">サ</span>
 		<div class="dropdown">
 		 <h2>サッカー観戦</h2>
+		  <span style="font-size: 0.8em;">
 			海外サッカーが好き
-            <br>黄金時代のバルサが人生で一番好きだけど，
+            <br>黄金時代のバルサが一番好きだけど，
             <br>今はプレミアばっか見ている
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 230px; left: 60px;">
-      <img src="game.png" alt="C1">
+    <div class="icon" style="top: 230px; left: 60px;" onclick="showImages(3)">
+      <span class="icon-number">ゲ</span>
 		<div class="dropdown">
 		 <h2>ゲーム</h2>
+		  <span style="font-size: 0.8em;">
 			はまったら16時間ぶっ通しや，
-            <br>3日で睡眠時間3時間になったこともあるほど
+            <br>3日で睡眠時間3時間になったことも…
             <br>なつみにうるさいと度々怒られる
-            <br>（本気でうるさくて実家では寝れないとの苦情あり）
+            <br>（実家では寝れないとの苦情あり）
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 30px; right: 60px;">
-      <img src="beer.png" alt="D1">
+    <div class="icon" style="top: 30px; right: 60px;" onclick="showImages(4)">
+      <span class="icon-number">お</span>
 		<div class="dropdown">
 		 <h2>お酒</h2>
+		  <span style="font-size: 0.8em;">
 			日本酒，焼酎以外なら基本飲める
-            <br>最近は克服したハイボールにはまっている
+            <br>最近はハイボールにはまっている
             <br>お酒は飲んでも飲まれるな！！
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 130px; right: 10px;">
-      <img src="fish.png" alt="E1">
+    <div class="icon" style="top: 130px; right: 10px;" onclick="showImages(5)">
+      <span class="icon-number">さ</span>
 		<div class="dropdown">
 		 <h2>魚（捌く）</h2>
+		  <span style="font-size: 0.8em;">
 			捌きたくなる瞬間がたまにある
             <br>一番捌くのは鯛！
-            <br>鯛って骨から出しも取れて捨てるとこがないので最高！！
+            <br>鯛って骨から出しも取れて
+			<br>捨てるとこがないので最高！！
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 230px; right: 60px;">
-      <img src="udon.png" alt="F1">
+    <div class="icon" style="top: 230px; right: 60px;" onclick="showImages(6)">
+      <span class="icon-number">う</span>
 		<div class="dropdown">
 		 <h2>うどん</h2>
+		  <span style="font-size: 0.8em;">
 			3食うどんでもいいってくらい大好き！
-            <br>香川に行ったときには1日で5件（7~8杯分）食べた
-            <br>丸亀製麵では死ぬほどネギを入れる
+            <br>香川に行ったときには
+			<br>1日で5件（7~8杯分）食べた
+            <br>丸亀製麵では
+			<br>ありえない量のネギを入れる
+		  </span>
 		</div>
     </div>
+   </div>
+   <div class="image-display" id="imageDisplay">
+    <img id="leftImage" src="" alt="左画像">
+    <img id="rightImage" src="" alt="右画像">
+   </div>
   </div>
 
   <!-- 2つ目のセット -->
@@ -394,64 +483,90 @@
   <div class="circle-container container2">
   <div class="circle-background" style="background-image: url('natsumi.jpg');"></div>
   <div class="overlay"></div>
-    <div class="icon" style="top: 30px; left: 60px;">
-      <img src="onpu.png" alt="A2">
+    <div class="icon" style="top: 30px; left: 60px;" onclick="showImages2(7)">
+      <span class="icon-number">お</span>
 		<div class="dropdown">
 		 <h2>音楽</h2>
+		  <span style="font-size: 0.8em;">
 			音楽は世界を救うと思っている
             <br>いいと思うアーティストが多すぎて
-            <br>一番好きなアーティストを聞かれるといつも困る
+            <br>一番好きなアーティストを聞かれると
+			<br>いつも困る
             <br>フェスは年に3回くらいの信頼度
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 130px; left: 10px;">
-      <img src="cat.png" alt="B2">
+    <div class="icon" style="top: 130px; left: 10px;" onclick="showImages2(8)">
+      <span class="icon-number">ど</span>
 		<div class="dropdown">
 		 <h2>動物</h2>
-			実家に世界一かわいいマンチカンのいずみちゃんがいる！
-            <br>人見知りすぎて触るたび，嫌ってされて逃げられる
+		  <span style="font-size: 0.8em;">
+			実家に世界一かわいいマンチカンの
+			<br>いずみちゃんがいる！
+            <br>人見知りすぎて触るたび，
+			<br>嫌ってされて逃げられる
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 230px; left: 60px;">
-      <img src="airplane.png" alt="C2">
+    <div class="icon" style="top: 230px; left: 60px;" onclick="showImages2(9)">
+      <span class="icon-number">り</span>
 		<div class="dropdown">
 		 <h2>旅行</h2>
-			お金がないから日本しか旅行してないけど
+		  <span style="font-size: 0.8em;">
+			お金がないから
+			<br>国内しか旅行してないけど
             <br>本当は海外も行きたい
             <br>地味にあと8県で日本制覇。
             <br>冬は北陸，夏は四国がおすすめ！！
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 30px; right: 60px;">
-      <img src="frenchfry.png" alt="D2">
+    <div class="icon" style="top: 30px; right: 60px;" onclick="showImages2(10)">
+      <span class="icon-number">ポ</span>
 		<div class="dropdown">
 		 <h2>ポテト</h2>
+		  <span style="font-size: 0.8em;">
 			居酒屋行ったら絶対ポテトを頼む！！
             <br>同棲始めて冷凍庫が大きくなったから
             <br>冷凍ポテト常備してる♡
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 130px; right: 10px;">
-      <img src="camera.png" alt="E2">
+    <div class="icon" style="top: 130px; right: 10px;" onclick="showImages2(11)">
+      <span class="icon-number">し</span>
 		<div class="dropdown">
 		 <h2>写真</h2>
+		  <span style="font-size: 0.8em;">
             最近はフィルムカメラ一筋！
-            <br>現像する時までちゃんと取れてるかわからない
+            <br>現像する時まで
+			<br>ちゃんと取れてるかわからない
             <br>このドキドキがやめられない
-			<br>※好きだから上手いというわけではない
+			<br><span style="font-size: 0.8em;">※好きだから上手いというわけではない</span>
+		  </span>
 		</div>
     </div>
-    <div class="icon" style="top: 230px; right: 60px;">
-      <img src="pan.png" alt="F2">
+    <div class="icon" style="top: 230px; right: 60px;" onclick="showImages2(12)">
+      <span class="icon-number">パ</span>
 		<div class="dropdown">
 		 <h2>パン</h2>
+		  <span style="font-size: 0.8em;">
 			一生パン派
-            <br>ハード系が好きなのでフランスパンにはうるさいよ
-            <br>おすすめのパン屋があったら教えてください
+            <br>ハード系が好きなので
+			<br>フランスパンにはうるさいよ
+            <br>おすすめのパン屋があったら
+			<br>教えてください
             <br>気が向いたら行きます！
+		  </span>
 		</div>
     </div>
+	
+	<div class="image-display" id="imageDisplay2">
+    <img id="leftImage2" src="" alt="左画像2">
+    <img id="rightImage2" src="" alt="右画像2">
   </div>
+  
+  </div>
+  
   </main>
 
   <script>
@@ -492,12 +607,6 @@
   const submenu = document.getElementById(submenuId);
   submenu.classList.toggle("show");
   }
-
-  function toggleFooterSubMenu(event, submenuId) {
-	event.preventDefault();
-	const submenu = document.getElementById(submenuId);
-	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  }
   
   document.querySelectorAll('.icon').forEach(icon => {
 	icon.addEventListener('click', function(event) {
@@ -533,6 +642,105 @@
   document.addEventListener('click', function() {
 	document.querySelectorAll('.overlay').forEach(o => o.style.display = 'none');
   });
+  
+  const imagePairs = {
+      1: ["kaito.jpg", "natsumi.jpg"],
+      2: ["left2.jpg", "right2.jpg"],
+      3: ["left3.jpg", "right3.jpg"],
+      4: ["left4.jpg", "right4.jpg"],
+      5: ["left5.jpg", "right5.jpg"],
+      6: ["left6.jpg", "right6.jpg"]
+    };
+	
+  const imagePairs2 = {
+      7: ["left7.jpg", "right7.jpg"],
+      8: ["left8.jpg", "right8.jpg"],
+      9: ["left9.jpg", "right9.jpg"],
+      10: ["left10.jpg", "right10.jpg"],
+      11: ["left11.jpg", "right11.jpg"],
+      12: ["left12.jpg", "right12.jpg"]
+    };
+
+    function showImages(iconNumber) {
+  // 他の表示領域を非表示に
+  document.getElementById("imageDisplay2").style.display = "none";
+  document.getElementById("leftImage2").src = "";
+  document.getElementById("rightImage2").src = "";
+
+  const [leftSrc, rightSrc] = imagePairs[iconNumber];
+  document.getElementById("leftImage").src = leftSrc;
+  document.getElementById("rightImage").src = rightSrc;
+  document.getElementById("imageDisplay").style.display = "flex";
+}
+
+function showImages2(iconNumber) {
+  // 他の表示領域を非表示に
+  document.getElementById("imageDisplay").style.display = "none";
+  document.getElementById("leftImage").src = "";
+  document.getElementById("rightImage").src = "";
+
+  const [leftSrc, rightSrc] = imagePairs2[iconNumber];
+  document.getElementById("leftImage2").src = leftSrc;
+  document.getElementById("rightImage2").src = rightSrc;
+  document.getElementById("imageDisplay2").style.display = "flex";
+}
+
+
+   document.addEventListener("click", function(event) {
+	const imageDisplay = document.getElementById("imageDisplay");
+	const imageDisplay2 = document.getElementById("imageDisplay2");
+	
+	const isIcon = event.target.closest(".icon") !== null;
+
+	// 画像がクリックされたかどうかを判定
+	const isImage = event.target.tagName === "IMG" &&
+     (event.target.id === "leftImage" || event.target.id === "rightImage" ||
+      event.target.id === "leftImage2" || event.target.id === "rightImage2");
+
+	// アイコンでも画像でもない場合は非表示にする
+	if (!isIcon || isImage) {
+     imageDisplay.style.display = "none";
+     imageDisplay2.style.display = "none";
+     document.getElementById("leftImage").src = "";
+     document.getElementById("rightImage").src = "";
+     document.getElementById("leftImage2").src = "";
+     document.getElementById("rightImage2").src = "";
+    }
+   });
+   
+   function startBubbleMotion(el) {
+  function animate() {
+    const x = Math.random() * 60 - 30; // -30〜30px
+    const y = Math.random() * 60 - 30;
+    const rotate = Math.random() * 20 - 10; // -10〜10度
+    const opacity = 0.8 + Math.random() * 0.2; // 0.8〜1.0
+    const duration = Math.random() * 2000 + 1000; // 1〜3秒
+
+    el.style.transition = `transform ${duration}ms ease-in-out, opacity ${duration}ms ease-in-out`;
+    el.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)`;
+    el.style.opacity = opacity;
+
+    el.dataset.bubbleTimeout = setTimeout(animate, duration);
+  }
+
+  animate();
+}
+
+function stopBubbleMotion(el) {
+  clearTimeout(el.dataset.bubbleTimeout);
+  el.style.transform = 'translate(0, 0) rotate(0deg)';
+  el.style.opacity = 1;
+}
+
+
+document.querySelectorAll('.icon-number').forEach(el => {
+  startBubbleMotion(el);
+
+  el.addEventListener('click', () => {
+    stopBubbleMotion(el);
+  });
+});
+
   </script>
 
 </body>
