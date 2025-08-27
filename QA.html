@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q&A</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Serif JP', serif;
+	  letter-spacing: 1px;
+    }
+	
+	* {
+		box-sizing: border-box;
+	}
+
+	html, body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+	}
+
+	main {
+		flex: 1;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+    .menu-icon {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+    }
+
+    .menu-icon img {
+      width: 50px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 9;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .menu-overlay.show {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: 10;
+      padding: 60px 20px 20px;
+      box-sizing: border-box;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 15px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: black;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #ddd;
+    }
+	
+	.submenu {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease, opacity 0.4s ease;
+		opacity: 0;
+		margin-left: 20px;
+		text-align: center;
+	}
+	
+	.submenu.show {
+		max-height: 200px; /* 必要に応じて調整 */
+		opacity: 1;
+	}
+
+	.submenu a {
+		font-size: 1em;
+		padding: 8px 0;
+		display: block;
+		color: #333;
+	}
+
+	.submenu a:hover {
+		background-color: #eee;
+	}
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .chat-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .message {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.message.left {
+  justify-content: flex-start;
+}
+
+.message.right {
+  justify-content: flex-end;
+}
+
+.avatar-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  margin-bottom: 10px;
+}
+
+.bubble {
+  max-width: 300px;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  color: black;
+}
+
+.left .bubble {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.right .bubble {
+  background-color: #dcf8c6;
+  color: #000;
+}
+
+
+
+    .avatar img {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+    h1 {
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    p {
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+	  .full-width-img {
+		padding: 0 16px; /* スマホでは左右に16pxの余白 */
+	  }
+	  
+      .dropdown-menu a {
+        font-size: 1em;
+        padding: 12px;
+      }
+
+	  .footer-dropdown-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	  }
+
+	  .footer-dropdown {
+		width: 100%;
+		max-width: 300px;
+	  }
+
+	  .footer-submenu a {
+		font-size: 0.8em;
+	  }
+	}	
+
+	 
+	
+	html, body {
+		height: 100%;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	main {
+		flex: 1;
+	}
+
+	
+  </style>
+</head>
+
+<body>
+  <div class="menu-icon" onclick="toggleMenu()">
+    <img src="menu-icon.png" alt="Menu Icon" />
+  </div>
+
+  <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+  <div id="dropdown-menu" class="dropdown-menu">
+	<button onclick="toggleMenu()" class="close-button">✕</button>
+	
+	<a href="index.html">Home</a>
+	<a href="#" onclick="toggleSubMenu(event, 'submenu-about')">私たちについて</a>
+	<div id="submenu-about" class="submenu">
+		<a href="memory.html">二人の思い出</a>
+		<a href="favorite.html">My Favorite</a>
+		<a href="QA.html">Q&A</a>
+	</div>
+	<a href="#" onclick="toggleSubMenu(event, 'submenu-concept')">私たちのこだわり</a>
+	<div id="submenu-concept" class="submenu">
+		<a href="playlist.html">プレイリスト</a>
+		<a href="gift.html">プチギフトの紹介</a>
+		<a href="book.html">プロフィールブックについて</a>
+	</div>
+	<a href="table.html">座席表</a>
+	<a href="menu.html">メニュー</a>
+	<a href="photos.html">前撮り写真</a>
+	<a href="share.html">写真シェア</a>
+  </div>
+
+	
+  <main>
+  <h1>Q&A</h1>
+  <p>ゲストの皆さんからいただいた質問に答えていきます！！</p>
+  <p>たくさんのご質問ありがとうございました！
+  <br>すべてに答えたかったのですが、多くの質問をいただいたため、いくつか質問を抜粋しています
+  <br>自分のが選ばれているのか、楽しみにしててください!!</p>
+  
+  <div class="message left">
+	<div class="avatar">
+     <img src="icon.png" alt="User 1" />
+	</div>
+	<div class="bubble">お互いの好きなところ(マニアック編)</div>
+  </div>
+
+  <div class="message right">
+	<div class="bubble">
+	疲れてるといつの間にか
+	<br>ベッドに行って寝てるところ
+	<br>(仰向けで口が開いているところが愛おしい)
+	</div>
+	 <div class="avatar">
+      <img src="kaito.jpg" alt="User 2" />
+	</div>
+  </div>
+
+<div class="message right">
+  <div class="bubble">
+	忙しくて部屋の掃除が
+	<br>何日かできなかったとしても
+	<br>何も言わないし
+	<br>もはや何も思ってないところ(ありがたい)
+	</div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+  </div>
+</div>
+
+  <div class="message left">
+	<div class="avatar">
+     <img src="icon.png" alt="User 1" />
+	</div>
+	<div class="bubble">好きになったきっかけは？</div>
+  </div>
+
+  <div class="message right">
+	<div class="bubble">
+	一緒にいて楽しかった。
+	<br>どんな時でも一緒に過ごしたいと思った時
+	</div>
+	 <div class="avatar">
+      <img src="kaito.jpg" alt="User 2" />
+	</div>
+  </div>
+  
+  <div class="message right">
+  <div class="bubble">
+	串カツ田中でたこ焼き作ってる最中に
+	<br>"赤いブルーノを同棲の時使うのが夢"
+	<br>って話したら
+	<br>"それ持ってるんで一緒に住みます？"
+	<br>って言ってきた時
+	</div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+  </div>
+</div>
+
+  <div class="message left">
+	<div class="avatar">
+     <img src="icon.png" alt="User 1" />
+	</div>
+	<div class="bubble">2人にとって結婚とは？</div>
+  </div>
+
+  <div class="message right">
+	<div class="bubble">
+	愛情の証明
+	<br>一つの幸せの形
+	</div>
+	 <div class="avatar">
+      <img src="kaito.jpg" alt="User 2" />
+	</div>
+  </div>
+  
+  <div class="message right">
+  <div class="bubble">
+	自分だけの人生から
+	<br>2人で手を取り合う人生に変わること
+	</div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+  </div>
+</div>
+  
+  <div class="message left">
+	<div class="avatar">
+     <img src="icon.png" alt="User 1" />
+	</div>
+	<div class="bubble">2人で初めて撮った写真は？</div>
+  </div>
+
+  <div class="message right">
+	<div class="bubble">これらしい↓<br>
+	<img src="hatsu.jpg" alt="初ツーショ" width="100px">
+	</div>
+	 <div class="avatar">
+      <img src="kaito.jpg" alt="User 2" />
+	</div>
+  </div>
+
+
+
+<div class="message left">
+  <div class="avatar">
+    <img src="icon.png" alt="User 1" />
+  </div>
+  <div class="bubble">2人でよく行く好きな場所！</div>
+</div>
+
+<div class="message right">
+  <div class="bubble">
+	サンシャイン池袋
+	<br>家から歩いて行けるし
+	<br>なんでもあるから楽しい！
+  </div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+  </div>
+</div>
+
+  <div class="message left">
+	<div class="avatar">
+     <img src="icon.png" alt="User 1" />
+	</div>
+	<div class="bubble">おすすめのスタバのカスタマイズは？</div>
+  </div>
+
+  <div class="message right">
+	<div class="bubble">
+		トリプルエスプレッソラテの
+		<br>ホワイトモカ変更
+		<br>ミルクは気分で、アーモンドミルク</div>
+	 <div class="avatar">
+      <img src="kaito.jpg" alt="User 2" />
+	</div>
+  </div>
+  
+  <div class="message right">
+  <div class="bubble">
+	エスプレッソアフォガードフラペチーノ
+	<br>チョコレートチップ追加
+  </div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+	</div>
+	</div>
+
+  <div class="message left">
+	<div class="avatar">
+     <img src="icon.png" alt="User 1" />
+	</div>
+	<div class="bubble">好きなアンパンマンのキャラは誰ですか？</div>
+  </div>
+
+  <div class="message right">
+	<div class="bubble">天丼マン！！</div>
+	 <div class="avatar">
+      <img src="kaito.jpg" alt="User 2" />
+	</div>
+  </div>
+  
+  <div class="message right">
+  <div class="bubble">
+	一番強いアンパンマン
+	</div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+  </div>
+</div>
+  
+  <div class="message left">
+	<div class="avatar">
+     <img src="icon.png" alt="User 1" />
+	</div>
+	<div class="bubble">お風呂での歯磨きはOK派ですか？
+	<br>NG派ですか？</div>
+  </div>
+
+  <div class="message right">
+	<div class="bubble">
+	OKだけど、自分はしないと思う</div>
+	 <div class="avatar">
+      <img src="kaito.jpg" alt="User 2" />
+	</div>
+  </div>
+  
+  <div class="message right">
+  <div class="bubble">
+	字面だけ見るとOKなんだけど、
+	<br>いざ目の前で毎日やられるのは嫌かも笑笑
+	</div>
+  <div class="avatar">
+    <img src="natsumi.jpg" alt="User 2" />
+  </div>
+</div>
+
+
+  
+  </main>
+ 
+
+  <script>
+  function toggleMenu() {
+  const menu = document.getElementById("dropdown-menu");
+  const overlay = document.getElementById("menu-overlay");
+  const submenu = document.getElementById("submenu");
+  const isVisible = menu.classList.contains("show");
+
+  if (isVisible) {
+    menu.classList.remove("show");
+    overlay.classList.remove("show");
+    submenu.classList.remove("show"); // ← ここでサブメニューも閉じる
+    setTimeout(() => {
+      menu.style.display = "none";
+      overlay.style.display = "none";
+    }, 400);
+  } else {
+    menu.style.display = "block";
+    overlay.style.display = "block";
+    setTimeout(() => {
+      menu.classList.add("show");
+      overlay.classList.add("show");
+    }, 10);
+  }
+}
+
+
+  function toggleSubMenu(event, submenuId) {
+  event.preventDefault();
+  const allSubmenus = document.querySelectorAll('.submenu');
+  allSubmenus.forEach(menu => {
+    if (menu.id !== submenuId) {
+      menu.classList.remove('show');
+    }
+  });
+
+  const submenu = document.getElementById(submenuId);
+  submenu.classList.toggle("show");
+  }
+
+  function toggleFooterSubMenu(event, submenuId) {
+	event.preventDefault();
+	const submenu = document.getElementById(submenuId);
+	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+  }
+  </script>
+
+</body>
+</html>
