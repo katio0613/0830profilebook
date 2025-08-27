@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
   <style>
-    body {
+  body {
       margin: 0;
       font-family: 'Noto Serif JP', serif;
 	  letter-spacing: 1px;
-	  background-color: #f8f4e6; 
     }
 	
 	* {
@@ -144,69 +143,136 @@
       border: none;
       cursor: pointer;
     }
+	
+	.gallery {
+      column-count: 5;
+      column-gap: 0.2em;
+      padding: 0px 1em;
+    }
+
+    .gallery img {
+	  width: 100%;
+	  height: 50px; /* 高さを固定 */
+	  object-fit: cover; /* はみ出た部分をトリミングして表示 */
+	  margin-bottom: 0.2em;
+	  border-radius: 8px;
+	  display: block;
+	  break-inside: avoid;
+	}
+
+	.thumbnail {
+      width: 100%;
+      margin-bottom: 0.4em;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: transform 0.2s;
+      break-inside: avoid;
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.03);
+    }
+
+    /* モーダルスタイル */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+	  position: relative;
+	  margin: auto;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  padding: 20px;
+	  border-radius: 10px;
+	  max-width: 600px; /* ここを変更 */
+	  width: 90%;        /* 画面サイズに応じて縮小可能に */
+	  text-align: left;
+	}
+
+
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .modal-comment {
+      margin-top: 15px;
+      font-size: 0.7em;
+      color: white;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+	
+	
+/* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
 
     h1 {
-      padding-top: 30px;
+      padding-top: 0px;
       text-align: center;
     }
 	
-	h2	{
-		padding-top: 20px;
-		margin-bottom: 0;
-		padding-bottom: 0;
-		}
-	
-.chapter-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.5em;
-  color: #596E5F; 
-  margin-bottom: 1em;
-  border-bottom: 2px solid #333; /* ← 下線を追加 */
-  padding-bottom: 5px; /* 下線との間に余白 */
-}
-
-
-.chapter-number {
-	font-weight: bold;
-	font-size: 1.5em; /* 少し大きめ */
-	color: #596E5F; 
-}
-
-.chapter-title {
-	text-align: right;
-	color: #596E5F; 
-}
-
+	h2 	{
+      text-align: left;
+	  padding-bottom: 0px;
+	  padding-left: 10px;
+	}
 
     p {
       padding: 0 20px;
       text-align: center;
-	  margin-top: 0;
     }
-	
-	.left {
-		text-align:left;
-		margin-left: 0;
-		}
 
     @media (max-width: 600px) {
-	  .full-width-img {
-		padding: 0 10px; /* スマホでは左右に16pxの余白 */
-	  } 
+      .full-width-img {
+		padding: 0 2px; /* スマホでは左右に16pxの余白 */
+	  }
 	  
-	p, h2, h1 {
-      padding-left: 10px;
-      padding-right: 10px;
-	}
+	  
+	gallery {
+        column-count: 5;
+      }
 
 	  
       .dropdown-menu a {
         font-size: 1em;
         padding: 12px;
       }
-    }
+
 	
 	html, body {
 		height: 100%;
@@ -218,36 +284,6 @@
 	main {
 		flex: 1;
 	}
-	
-	html {
-  scroll-behavior: smooth;
-}
-
-.inline-chapter-links {
-  text-align: left;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  color: #596E5F; 
-}
-
-.inline-chapter-links a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #596E5F;
-  font-weight: bold;
-}
-
-.inline-chapter-links a:hover {
-  color: #007acc;
-}
-
-.full-width-img {
-  max-width: 90vw;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-}
-
 	
   </style>
 </head>
@@ -281,84 +317,77 @@
 	<a href="share.html">写真シェア</a>
   </div>
   
-	<h1>二人の思い出</h1>
-
-<div class="inline-chapter-links">
-  <a href="#chapter1">Chapter1&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">開斗の思い出&nbsp〉</span></a><br>
-  <a href="#chapter2">Chapter2&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">七海の思い出&nbsp〉</span></a><br>
-  <a href="#chapter3">Chapter3&nbsp&nbsp&nbsp<span style="font-size: 0.7em;">二人の思い出&nbsp〉</span></a>
-</div>
-
-
-
   <main>
-	<div class="chapter-header" id="chapter1">
-		<div class="chapter-number">Chapter 01</div>
-		<div class="chapter-title">開斗の思い出</div>
-	</div>
-	<h2 class="left">高麗での日々</h2>
-	<p class="left">2000年3月23日生誕<br>
-	幼少期の見た目はとてもかわいく，保育園で母たちにモテモテだったらしい<br>
-	（今はその面影すら残っていないが．．．）
-	</p>
+  <h1>Memory</h1>
+  <p>人生を彩ってくれた、
+  <br>紹介せずにはいられない、
+  <br>最高の友人たちをご覧あれ
+  <br><span style="font-size:0.7em;">※写真をクリックすると紹介文が表示されるよ</span></p>
+  
+  <div class="gallery">
+	<img src="koma.jpg" alt="高麗" class="thumbnail" onclick="openModal('koma.jpg'
+	, '小・中合わせて9年間ほぼ同クラスで過ごしたから、もはや兄弟レベル。その中で今でも定期的にあってる幼馴染！')">
+	<img src="kou.jpg" alt="こうへい" class="thumbnail" onclick="openModal('kou.jpg'
+	, '高校2,3年でたぶん一番一緒にいた気がする。物理の授業中は一番後ろでずっと遊んでた。彼女出来たら教えてね')">
+	<img src="miya.jpg" alt="宮崎" class="thumbnail" onclick="openModal('miya.jpg'
+	, 'たぶんこの人が高校で一番ぶっとんでる。今日はたくさん飲んでほどほどに騒いでくださいw')">
+	<img src="suzuki.jpg" alt="鈴木先生" class="thumbnail" onclick="openModal('suzuki.jpg'
+	, 'この人が担任じゃなかったら楽しかった高校生活はなかった！畑も神輿も自由にさせてくれてありがとうございました！！そろそろ花火を作りませんか？')">
+	<img src="nishi.jpg" alt="西村" class="thumbnail" onclick="openModal('nishi.jpg'
+	, '大阪に行ったのにそれを感じさせないくらいの存在感。クレイジーだけどめっちゃいいやつ！今日はたくさんビール飲むんだぞ')">
+	<img src="riko.jpg" alt="りこれん" class="thumbnail" onclick="openModal('riko.jpg'
+	, 'なんだかんだ定期的に遊んでる長年のカップル。これからは妻も一緒に遊びましょう！まずは清水公園とBBQしようね！')">
+	<img src="ko.jpg" alt="こなっつん" class="thumbnail" onclick="openModal('ko.jpg'
+	, 'いつも髪の毛を切ってもらってるダンス部の同期。高校の時から変わらず一匹狼っぽいけど、しゃべるとちゃんと面白い。今後も髪がなくなるまでは切ってもらうつもりだから頼んだ！')">
+	<img src="sibaura.jpg" alt="芝浦" class="thumbnail" onclick="openModal('sibaura.jpg'
+	, '大学院含め6年間お世話しました！頭おかしいけど実はまじめでいい人たちなんです、たぶん。これからもXmas＋パチの会は行こうな')">
+	<img src="sibaura2.jpg" alt="たかけん＆あゆむ" class="thumbnail" onclick="openModal('sibaura2.jpg'
+	, '大学の鬱な実験、暇な授業もともに乗り越えた仲間。去年からXmasの会に参加できるようになって定期的に会えそうで良き。また飲もうや')">
+	<img src="pazzu.jpg" alt="ぱずさん" class="thumbnail" onclick="openModal('pazzu.jpg'
+	, '知り合って3年とは思えないほど仲良し。出会った時はまだ結婚もしてなかったのに今では一児のパパ。ほんとに尊敬してます。これからも定期的に群馬遊びに行きます！')">
+	<img src="haru.jpg" alt="はるちゃん" class="thumbnail" onclick="openModal('haru.jpg'
+	, '生後2か月とかで実は抱っこしてるんだよ～。これからの成長が私たち夫婦も楽しみです！元気に育つんだよ！！')">
 	
-	<h2 class="left">坂戸高校</h2>
-	<p class="left">高麗小・中学校で9年間を過ごす．<br>
-	田舎の学校過ぎて一学年40人程度，周りも自然だらけの場所．<br>
-	この時にサッカーに出会う
-	</p>
-	
-	<h2 class="left">芝浦工業大学・大学院</h2>
-	<p class="left">高麗小・中学校で9年間を過ごす．<br>
-	田舎の学校過ぎて一学年40人程度，周りも自然だらけの場所．<br>
-	この時にサッカーに出会う
-	</p>
-	
-	<h2 class="left">ルネサスに入社</h2>
-	<p class="left">高麗小・中学校で9年間を過ごす．<br>
-	田舎の学校過ぎて一学年40人程度，周りも自然だらけの場所．<br>
-	この時にサッカーに出会う
-	</p>
+	<img src="yama.jpg" alt="山脇" class="thumbnail" onclick="openModal('yama.jpg'
+	, '高校3年間一緒で卒業後も定期的に集まってお肉を食べる仲間たちです。十人十色なメンバーだからこそ話せる話がたくさん！')">
+	<img src="hagi.jpg" alt="はぎおえれにゃん" class="thumbnail" onclick="openModal('hagi.jpg'
+	, '結婚式か二次会でハイハイレースをしようと約束したけど演出に入れられませんでした。少し心残りです。')">
+	<img src="menhera.jpg" alt="メンヘラ" class="thumbnail" onclick="openModal('menhera.jpg'
+	, '笑顔でいまここに立てているのは2人が小さいことでも相談に乗ってくれたからです。これからもどんな時も3人で支え合おうね！？')">
+	<img src="hori.jpg" alt="堀ティー" class="thumbnail" onclick="openModal('hori.jpg'
+	, '私の超反抗期中も見捨てずに叱り続けてくれた担任の先生！普段は白衣か今にも走り出しそうな格好してる。')">
+	<img src="kona.jpg" alt="こなっちゃん" class="thumbnail" onclick="openModal('kona.jpg'
+	, '中高の濃い思い出を親友と過ごしてきました♡お互い新しい家族ができても、家族ぐるみで仲良くすることが目標です！')">
+	<img src="ajiji.jpg" alt="あじじさん" class="thumbnail" onclick="openModal('ajiji.jpg'
+	, '散歩友達兼恋愛アドバイザー兼最高の上司です！こんなに可愛くて仕事できて面白い方は出会ったことがありません。永遠に私の尊敬する人です♡♡')">
+	<img src="kossi.jpg" alt="こっしーさん、みんこさん" class="thumbnail" onclick="openModal('kossi.jpg'
+	, '私を社員にしてくれたのはこの方たち！！黄金時代の社員様です。今でも背中を追いかけていますが未だ届かず！まだまだ追いかける予定です！')">
+	<img src="kome.jpg" alt="こめちゃん、さかもと" class="thumbnail" onclick="openModal('kome.jpg'
+	, '最高の青春を過ごした同期と先輩♡この人たちが厳しくも優しく接してくれたからこそ成長でき、今の私がいます。またあの頃に戻ってみんなでクローズ作業したい気持ち。')">
+	<img src="fukirena.jpg" alt="ふきれな" class="thumbnail" onclick="openModal('fukirena.jpg'
+	, 'まさかの入籍日が同じ夫婦です。最近はどちらかの家で夜通し桃鉄するのがブーム。女性陣は割と早めに寝がちです。')">
+	<img src="mihoko.jpg" alt="美穂子さん" class="thumbnail" onclick="openModal('mihoko.jpg'
+	, 'インスタグラマー目指していてInstagramのフォロワーが59逆にフォローは625というもうそれはインスタグラマーを諦めている境地の先輩。けどインスタの投稿はツッコミどころ多くて面白い、そこもまた味である。')">
+	<img src="kaya.jpg" alt="かやまみたま" class="thumbnail" onclick="openModal('kaya.jpg'
+	, 'かわいいかわいい一個下の後輩たち。本当にみんないい子で仕事もさらっとこなしてくれて逆に助けられることも多くありました。')">
+	<img src="momo.jpg" alt="ももこ" class="thumbnail" onclick="openModal('momo.jpg'
+	, '今日プチギフトのイラストを担当してくれた天才画伯！本当に何を描いても上手い。さらに仕事に対しても丁寧で頼れる仲間です。なんでもできるね。')">
+	<img src="guchi.jpg" alt="りょうくんゆいちゃん" class="thumbnail" onclick="openModal('guchi.jpg'
+	, '同じ目標を持ち続ける仲間たちです。今はこの2人は同じ職場で私だけ違う場所なのでちょっと寂しいです。今日はたくさん飲んでもらいます。')">
+  </div>
+  
+  
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="拡大画像">
+      <div id="modalComment" class="modal-comment"></div>
+    </div>
+  </div>
 
-	<div class="chapter-header" id="chapter2">
-		<div class="chapter-number">Chapter 02</div>
-		<div class="chapter-title">七海の思い出</div>
-	</div>
-	<h2 class="left">幼少期</h2>
-	<p class="left">1999年1月20日生誕<br>
-	実は佐賀県出身．<br>
-	（3歳までしか佐賀にいなかったため，佐賀の記憶は全くない）
-	</p>
-	
-	<h2 class="left">少女期</h2>
-	<p class="left">豊洲という大都会で過ごす<br>
-	中学受験をし，赤坂にある山脇学園に入学．<br>
-	ここで親友となるこなっちゃんに出会う．<br>
-	メンヘラさんたちとは学生時代はほとんどしゃべってないらしい．
-	</p>
-
-	<div class="chapter-header" id="chapter3">
-		<div class="chapter-number">Chapter 03</div>
-		<div class="chapter-title">二人の思い出</div>
-	</div>
-	<h2 class="left">出会い</h2>
-	<img src="seaside.jpg" alt="説明文" class="full-width-img">
-	<p class="left">2021年10月頃<br>
-	初めて出会ったのはスターバックスの仕事<br>
-	七海はSSVとして，開斗はまだ入社して半年程度の時，七海の勤務先に開斗がヘルプとして手伝いに行く．<br>
-	この時は，特にお互いなんの印象もない<br>
-	</p>
-	
-	<h2 class="left">再会</h2>
-	<img src="rara3.jpg" alt="説明文" class="full-width-img">
-	<p class="left">七海がまさかのらら3に副店長として異動．<br>
-	この時には開斗はSSVとしてコントロールを任せられる程度に成長<br>
-	初めての1on1であまりよくない印象を与えてたらしい<br>
-	けど，なぜか2人で飲みに行くことに．．．
-	</p>
-
-	
+  
   </main>
+
 
   <script>
     function toggleMenu() {
@@ -398,11 +427,27 @@
   submenu.classList.toggle("show");
   }
   
-  function toggleFooterSubMenu(event, submenuId) {
-	event.preventDefault();
-	const submenu = document.getElementById(submenuId);
-	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  }
+  function openModal(imageSrc, commentText) {
+  document.getElementById('modalImage').src = imageSrc;
+
+  // 改行コード \n を <br> に変換して HTML として表示
+  const formattedComment = commentText.replace(/\n/g, '<br>');
+  document.getElementById('modalComment').innerHTML = formattedComment;
+
+  document.getElementById('imageModal').style.display = 'block';
+}
+
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('imageModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
   </script>
 </body>
 </html>
