@@ -142,6 +142,17 @@
       border: none;
       cursor: pointer;
     }
+	
+	.fade-in-on-scroll {
+	  opacity: 0;
+      transform: translateY(20px);
+	  transition: opacity 1s ease, transform 1s ease;
+	}
+
+	.fade-in-on-scroll.visible {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
 
     .chat-container {
       max-width: 900px;
@@ -286,19 +297,20 @@
 	
   <main>
   <h1>Q&A</h1>
-  <p>ゲストの皆さんからいただいた質問に答えていきます！！</p>
-  <p>たくさんのご質問ありがとうございました！
-  <br>すべてに答えたかったのですが、多くの質問をいただいたため、いくつか質問を抜粋しています
-  <br>自分のが選ばれているのか、楽しみにしててください!!</p>
+  <p><span style="font-size:0.9em;">皆様にいただいた質問の中から
+  <br>多かった質問、変な質問を
+  <br>抜粋させていただきました！
+  <br>惜しくも掲載されなかった方は
+  <br>新郎がクレームを受け付けます(たぶん)</span></p>
   
-  <div class="message left">
+  <div class="message left fade-in-on-scroll">
 	<div class="avatar">
      <img src="icon.png" alt="User 1" />
 	</div>
 	<div class="bubble">お互いの好きなところ(マニアック編)</div>
   </div>
 
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
 	<div class="bubble">
 	疲れてるといつの間にか
 	<br>ベッドに行って寝てるところ
@@ -309,7 +321,7 @@
 	</div>
   </div>
 
-<div class="message right">
+<div class="message right fade-in-on-scroll">
   <div class="bubble">
 	忙しくて部屋の掃除が
 	<br>何日かできなかったとしても
@@ -321,14 +333,14 @@
   </div>
 </div>
 
-  <div class="message left">
+  <div class="message left fade-in-on-scroll">
 	<div class="avatar">
      <img src="icon.png" alt="User 1" />
 	</div>
 	<div class="bubble">好きになったきっかけは？</div>
   </div>
 
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
 	<div class="bubble">
 	一緒にいて楽しかった。
 	<br>どんな時でも一緒に過ごしたいと思った時
@@ -338,7 +350,7 @@
 	</div>
   </div>
   
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
   <div class="bubble">
 	串カツ田中でたこ焼き作ってる最中に
 	<br>"赤いブルーノを同棲の時使うのが夢"
@@ -351,14 +363,14 @@
   </div>
 </div>
 
-  <div class="message left">
+  <div class="message left fade-in-on-scroll">
 	<div class="avatar">
      <img src="icon.png" alt="User 1" />
 	</div>
 	<div class="bubble">2人にとって結婚とは？</div>
   </div>
 
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
 	<div class="bubble">
 	愛情の証明
 	<br>一つの幸せの形
@@ -368,7 +380,7 @@
 	</div>
   </div>
   
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
   <div class="bubble">
 	自分だけの人生から
 	<br>2人で手を取り合う人生に変わること
@@ -378,14 +390,14 @@
   </div>
 </div>
   
-  <div class="message left">
+  <div class="message left fade-in-on-scroll">
 	<div class="avatar">
      <img src="icon.png" alt="User 1" />
 	</div>
 	<div class="bubble">2人で初めて撮った写真は？</div>
   </div>
 
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
 	<div class="bubble">これらしい↓<br>
 	<img src="hatsu.jpg" alt="初ツーショ" width="100px">
 	</div>
@@ -396,14 +408,14 @@
 
 
 
-<div class="message left">
+<div class="message left fade-in-on-scroll">
   <div class="avatar">
     <img src="icon.png" alt="User 1" />
   </div>
   <div class="bubble">2人でよく行く好きな場所！</div>
 </div>
 
-<div class="message right">
+<div class="message right fade-in-on-scroll">
   <div class="bubble">
 	サンシャイン池袋
 	<br>家から歩いて行けるし
@@ -414,14 +426,14 @@
   </div>
 </div>
 
-  <div class="message left">
+  <div class="message left fade-in-on-scroll">
 	<div class="avatar">
      <img src="icon.png" alt="User 1" />
 	</div>
 	<div class="bubble">おすすめのスタバのカスタマイズは？</div>
   </div>
 
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
 	<div class="bubble">
 		トリプルエスプレッソラテの
 		<br>ホワイトモカ変更
@@ -431,7 +443,7 @@
 	</div>
   </div>
   
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
   <div class="bubble">
 	エスプレッソアフォガードフラペチーノ
 	<br>チョコレートチップ追加
@@ -441,21 +453,21 @@
 	</div>
 	</div>
 
-  <div class="message left">
+  <div class="message left fade-in-on-scroll">
 	<div class="avatar">
      <img src="icon.png" alt="User 1" />
 	</div>
 	<div class="bubble">好きなアンパンマンのキャラは誰ですか？</div>
   </div>
 
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
 	<div class="bubble">天丼マン！！</div>
 	 <div class="avatar">
       <img src="kaito.jpg" alt="User 2" />
 	</div>
   </div>
   
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
   <div class="bubble">
 	一番強いアンパンマン
 	</div>
@@ -464,7 +476,7 @@
   </div>
 </div>
   
-  <div class="message left">
+  <div class="message left fade-in-on-scroll">
 	<div class="avatar">
      <img src="icon.png" alt="User 1" />
 	</div>
@@ -472,7 +484,7 @@
 	<br>NG派ですか？</div>
   </div>
 
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
 	<div class="bubble">
 	OKだけど、自分はしないと思う</div>
 	 <div class="avatar">
@@ -480,7 +492,7 @@
 	</div>
   </div>
   
-  <div class="message right">
+  <div class="message right fade-in-on-scroll">
   <div class="bubble">
 	字面だけ見るとOKなんだけど、
 	<br>いざ目の前で毎日やられるのは嫌かも笑笑
@@ -539,6 +551,23 @@
 	const submenu = document.getElementById(submenuId);
 	submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
   }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // 一度表示されたら監視解除（任意）
+        }
+      });
+    }, {
+      threshold: 0.2 // 要素が20%見えたら発火
+    });
+
+    document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  });
   </script>
 
 </body>
