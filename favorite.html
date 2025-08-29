@@ -259,8 +259,6 @@
 	left: 0;
 	width: 30%;
 	height: auto;
-	border: 2px solid #aaa;
-	border-radius: 10px;
   }
 
   #rightImage {
@@ -269,32 +267,25 @@
 	right: 0;
 	width: 30%;
 	height: auto;
-	border: 2px solid #aaa;
-	border-radius: 10px;
   }
   
   #leftImage2 {
 	position: absolute;
-	bottom: -30px;
+	bottom: -20px;
 	right: 0;
 	width: 30%;
 	height: auto;
-	border: 2px solid #aaa;
-	border-radius: 10px;
   }
 
   #rightImage2 {
 	position: absolute;
-	top: -30px;
+	top: 0px;
 	left: 0;
 	width: 30%;
 	height: auto;
-	border: 2px solid #aaa;
-	border-radius: 10px;
   }
 
     .image-display img {
-      border: 2px solid #aaa;
       border-radius: 10px;
     }
 	
@@ -375,7 +366,7 @@
 	<a href="index.html">Home</a>
 	<a href="#" onclick="toggleSubMenu(event, 'submenu-about')">私たちについて</a>
 	<div id="submenu-about" class="submenu">
-		<a href="memory.html">二人の思い出</a>
+		<a href="memory.html">Memory</a>
 		<a href="favorite.html">My Favorite</a>
 		<a href="QA.html">Q&A</a>
 	</div>
@@ -644,21 +635,21 @@
   });
   
   const imagePairs = {
-      1: ["kaito.jpg", "natsumi.jpg"],
-      2: ["left2.jpg", "right2.jpg"],
-      3: ["left3.jpg", "right3.jpg"],
-      4: ["left4.jpg", "right4.jpg"],
-      5: ["left5.jpg", "right5.jpg"],
-      6: ["left6.jpg", "right6.jpg"]
+      1: ["coffee2.jpg", "coffee1.png"],
+      2: ["soccer2.jpg", "soccer1.jpg"],
+      3: ["game1.png", "game2.jpg"],
+      4: ["sake1.jpg", "sake2.jpg"],
+      5: ["fish1.jpg", "fish2.jpg"],
+      6: ["udon2.jpg", "udon1.jpg"]
     };
 	
   const imagePairs2 = {
-      7: ["left7.jpg", "right7.jpg"],
-      8: ["left8.jpg", "right8.jpg"],
-      9: ["left9.jpg", "right9.jpg"],
-      10: ["left10.jpg", "right10.jpg"],
-      11: ["left11.jpg", "right11.jpg"],
-      12: ["left12.jpg", "right12.jpg"]
+      7: ["music1.jpg", "music2.png"],
+      8: ["izu1.jpg", "izu2.jpg"],
+      9: ["trip1.jpg", "trip2.jpg"],
+      10: ["poteto1.png", "poteto2.jpg"],
+      11: ["camera1.jpg", "camera2.png"],
+      12: ["pan1.jpg", "pan2.jpg"]
     };
 
     function showImages(iconNumber) {
